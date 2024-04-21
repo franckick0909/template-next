@@ -1,3 +1,6 @@
+const { Space_Grotesk } = require('next/font/google');
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,12 +12,17 @@ module.exports = {
     fontFamily: {
       sans: ["Inter", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      Space_Grotesk: ["Space Grotesk", "sans-serif"],
     },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+
+      boxShadow: {
+        "3xl": "0 15px 60px -15px rgba(0, 0, 0, 0.8)",
       },
     },
   },
