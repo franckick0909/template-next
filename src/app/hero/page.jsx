@@ -1,48 +1,45 @@
+"use client";
 
 import Image from "next/image";
-import imgHero from "../../images/voiture.jpg";
-import TextSliding from "../../components/TextSliding";
-
-
+import imgHero from "../../images/man_4.png";
+import Social from "@/components/social";
+import SlideText from "@/components/textSliding";
+import { motion } from "framer-motion";
 
 const HeroPage = () => {
 
 
-    return (
-      <>
-        <section className="relative w-full h-screen md:flex items-center justify-between gap-8 bg-amber-200">
-          <div className="flex-1 bg-violet-300 grid items-center justify-center gap-4">
-            <h2 className="text-2xl font-bold ">Freelance</h2>
-            <h2 className="text-2xl font-bold">Designer & Developpeur</h2>
-            <p className="text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quas.
-            </p>
-            <div className="flex gap-2">
-              <button className="border-2">btn 1</button>
-              <button className="border-2">btn 2</button>
-            </div>
-          </div>
+  return (
+    <motion.div layout>
+      <motion.section
+        className="relative w-full h-screen m-auto flex flex-col sm:flex-row gap-8 items-center justify-center px-4 sm:px-8 md:px-12 lg:px20 xl:px48 text-xl py-14">
+        <div className="flex-1 flex flex-col gap-5 ">
+          <h1 className="text-3xl font-bold">Franck Chapelon</h1>
+          <h3 className="orbitron text-lg">Welcome to the homepage</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perspiciatis soluta vero accusantium. Inventore, fuga! Laborum error
+            accusantium voluptatem eum quasi.
+          </p>
 
-          <div className="flex-1 items-center justify-center grid max-w-[31rem] bg-blue-300 rounded-full shadow-3xl">
-            <Image
-              src={imgHero}
-              alt="hero"
-              className="max-w-full h-auto block rounded-full"
-            />
-          </div>
-          <div className="absolute bottom-[7rem] flex container mx-auto text-white font-bold text-9xl whitespace-nowrap overflow-hidden">
-            <TextSliding
-              className="font-Space_Grotesk"
-              text="Franck Chapelon Developpeur"
-            />
-                </div>
-                <div className="">
-                </div>
-                
-        </section>
-      </>
-    );  
+          <Social />
+        </div>
+
+        <div className="flex flex-1 max-w-sm rounded-3xl">
+          <Image
+            src={imgHero}
+            alt="Hero"
+            className="rounded-3xl drop-shadow-[0_5px_100px_rgba(0,0,0,0.6)]"
+          />
+        </div>
+        <div className="overflow-hidden w-full h-full absolute bottom-[-70%] left-0 text-9xl font-bold whitespace-nowrap drop-shadow-lg z-0">
+          <motion.div className="">
+            <SlideText />
+          </motion.div>
+        </div>
+      </motion.section>
+    </motion.div>
+  );
 };
 
 export default HeroPage;

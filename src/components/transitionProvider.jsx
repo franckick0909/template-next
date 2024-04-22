@@ -85,7 +85,7 @@ const TransitionProvider = ({ children }) => {
         <div className="h-24">
           <Navbar />
         </div>
-        <div className="h-[100vh-6rem]">{children}</div>
+        <div className="h-full">{children}</div>
       </motion.div>
     </AnimatePresence>
   );
