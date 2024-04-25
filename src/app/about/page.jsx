@@ -1,6 +1,12 @@
+import Gallery from "@/components/gallery";
+
+
 const AboutPage = () => {
   return (
-    <div className=''>AboutPage</div>
+    <div>
+      <Gallery />
+
+    </div>
   )
 }
 

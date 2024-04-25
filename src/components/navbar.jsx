@@ -11,7 +11,6 @@ const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
   { url: "/portfolio", title: "Portfolio" },
-  { url: "/skills", title: "Skills" },
   { url: "/service", title: "Service" },
   { url: "/contact", title: "Contact" },
 ];
@@ -155,7 +154,7 @@ const Navbar = () => {
       {/* MENU RESPONSIVE */}
       <div className="">
         {/* BURGER BUTTON */}
-        <div className="fixed top-8 right-4 sm:right-8 md:right-12 lg:right-20 xl:right-48 z-50">
+        <div className="fixed top-4 right-4 sm:right-8 md:right-12 lg:right-20 xl:right-48 z-50">
           <button
             className=" w-8 h-8 flex flex-col items-center justify-center gap-[5px] z-50 relative"
             onClick={() => setIsOpen((prev) => !prev)}>
@@ -182,18 +181,18 @@ const Navbar = () => {
               initial="close"
               animate="open"
               exit="close"
-              className="flex flex-col justify-center items-center gap-4 absolute top-0 left-0 bg-black text-white w-full h-screen z-40">
-              <div className=" flex flex-col items-end justify-center gap-4 w-[80%] h-[90%] ">
-                <div className="flex items-center justify-between w-full mb-8 border-transparent border-y-slate-600 border-y-[0.5px] py-8 text-sm text-slate-600">
+              className="container mx-auto flex flex-col justify-center items-center gap-2 absolute top-0 left-0 right-0 bottom-0 bg-black text-white w-full min-h-screen h-auto z-40">
+              <div className=" flex flex-col items-end justify-center gap-6 w-[80%] h-[90%]">
+                <div className="flex items-center justify-between w-full mb-8 border-transparent border-y-slate-600 border-y-[0.5px] py-8 text-sm text-slate-600 my-20">
                   Navigation
                   <Social />
                 </div>
                 {links.map((link) => (
                   <motion.div
                     variants={listItemsVariants}
-                    className="flex justify-start px-[0%] z-50 w-full text-center rounded-md"
+                    className="flex justify-start z-50 w-full text-center rounded-md"
                     key={link.title}>
-                    <Link className=" cursor-pointer text-5xl" href={link.url}>
+                    <Link className=" cursor-pointer text-[5rem] font-bold" href={link.url}>
                       {link.title}
                     </Link>
                   </motion.div>

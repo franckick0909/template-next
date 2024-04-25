@@ -15,7 +15,7 @@ const TransitionProvider = ({ children }) => {
         animate="visible"
         exit="exit"
         key={pathName}
-        className="w-full h-full bg-gradient-to-b from-blue-100 to-red-100">
+        className="w-full h-screen ">
         <motion.div
           id="banner-1"
           className="h-full bg-black z-10 fixed top-0 left-0 w-1/4"
@@ -82,10 +82,10 @@ const TransitionProvider = ({ children }) => {
           className="h-full bg-black z-10 fixed top-0 left-3/4 w-1/4"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.8 } }}></motion.div>
-        <div className="h-24">
+        <div className="h-16">
           <Navbar />
         </div>
-        <div className="h-full">{children}</div>
+        <div className="h-[calc(100vh-4rem)]">{children}</div>
       </motion.div>
     </AnimatePresence>
   );

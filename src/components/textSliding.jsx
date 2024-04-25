@@ -14,35 +14,34 @@ const TextSliding = () => {
       opacity: 1,
       transition: {
         repeat: Infinity,
-        duration: 15,
+        duration: 12,
         ease: "linear",
       },
     },
     exit: {
-      x: 100,
-      opacity: 0.5,
+      x: "0%",
+      opacity: 1,
     },
   };
 
     const letterVariants = {
       initial: {
-        y: -80,
         opacity: 0,
+        y: 20,
+        rotate: 60,
+        scale: 7,
       },
       animate: {
-        y: 0,
         opacity: 1,
+        y: 0,
+        rotate: 0,
+        scale: [0.5, 1.2, 1],
         transition: {
-          staggerChildren: 0.1,
-          delayChildren: 0.2,
+          staggerChildren: 0.5,
           staggerDirection: 1,
-          duration: 1,
-          ease: "easeOut",
         },
       },
     };
-
-  const text2 = ["C", "h", "a", "p", "e", "l", "o", "n"];
 
   return (
     <AnimatePresence>
@@ -51,24 +50,59 @@ const TextSliding = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className=" bg-clip-text text-transparent bg-gradient-to-t from-slate-200 via-slate-100 to-white font-spaceGrotesk font-semibold">
-        <motion.div className=""
+        className=" ">
+        <motion.div
+          className="container h-[13rem] flex items-center whitespace-nowrap text-[4rem] md:text-[5rem] lg:text-[7rem] xl:text-[11rem] font-spaceGrotesk font-semibold text-slate-900 overflow-hidden cursor-pointer dropShadow"
           variants={letterVariants}
           initial="initial"
-          animate="animate"
-        >
-          <motion.span
-            variants={letterVariants}>
-            Franck
-          </motion.span>
+          animate="animate">
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            F
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            r
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            a
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            n
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            c
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            k
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            {" "}
+            -{" "}
+          </motion.div>
 
-          <motion.span variants={letterVariants}> - </motion.span>
-
-          {text2.map((letter, index) => (
-            <motion.span key={index} variants={letterVariants}>
-              {letter}
-            </motion.span>
-          ))}
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            C
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            h
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            a
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            p
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            e
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            l
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            o
+          </motion.div>
+          <motion.div variants={letterVariants} whileHover={{ scale: 1.2 }}>
+            n
+          </motion.div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
