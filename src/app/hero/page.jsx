@@ -1,7 +1,7 @@
 "use client";
 
 import SlideText from "@/components/textSliding";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Welcome from "@/components/welcome";
 import Freelance from "@/components/freelance";
 // import Image from "next/image";
@@ -33,7 +33,7 @@ const HeroPage = () => {
 
   return (
     <motion.div layout>
-      <motion.section className="relative w-full min-h-dvh m-auto flex flex-col gap-8 items-center justify-center px-4 sm:px-8 md:px-12 lg:px20 xl:px48 text-xl  overflow-hidden">
+      <motion.section className="relative w-full min-h-dvh m-auto flex flex-col gap-8 items-center justify-center px-4 sm:px-8 md:px-12 lg:px20 xl:px48 text-xl overflow-hidden">
         <motion.div
           className="absolute container mx-auto"
           variants={imgVariants}

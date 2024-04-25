@@ -181,9 +181,9 @@ const Navbar = () => {
               initial="close"
               animate="open"
               exit="close"
-              className="container mx-auto flex flex-col justify-center items-center gap-2 absolute top-0 left-0 right-0 bottom-0 bg-black text-white w-full min-h-screen h-auto z-40">
+              className="flex flex-col justify-center items-center gap-2 fixed left-0 top-0 bg-black text-white w-full min-h-screen h-auto z-40 py-16">
               <div className=" flex flex-col items-end justify-center gap-6 w-[80%] h-[90%]">
-                <div className="flex items-center justify-between w-full mb-8 border-transparent border-y-slate-600 border-y-[0.5px] py-8 text-sm text-slate-600 my-20">
+                <div className="flex items-center justify-between w-full mb-8 border-transparent border-y-slate-600 border-y-[0.5px] py-8 text-sm text-slate-600 ">
                   Navigation
                   <Social />
                 </div>
