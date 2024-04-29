@@ -10,7 +10,7 @@ const TextSliding = () => {
       opacity: 1,
     },
     animate: {
-      x: "-100%",
+      x: ["100%", "-100%"],
       opacity: 1,
       transition: {
         repeat: Infinity,

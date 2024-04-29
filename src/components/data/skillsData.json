@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "React"
+    },
+    {
+        "id": 2,
+        "name": "JavasCript"
+    },
+    {
+        "id": 3,
+        "name": "Next.js"
+    },
+    {
+        "id": 4,
+        "name": "Node.js"
+    },
+    {
+        "id": 5,
+        "name": "Redux"
+    },
+    {
+        "id": 6,
+        "name": "MongoDB"
+    },
+    {
+        "id": 7,
+        "name": "Sass"
+    },
+    {
+        "id": 8,
+        "name": "Framer-Motion"
+    },
+    {
+        "id": 9,
+        "name": "TailwindCSS"
+    },
+    {
+        "id": 10,
+        "name": "HTML"
+    },
+    {
+        "id": 11,
+        "name": "CSS"
+    },
+    {
+        "id": 12,
+        "name": "Git"
+    }
+]

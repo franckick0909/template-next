@@ -4,20 +4,16 @@ const Welcome = () => {
   const letterVariants = {
     hidden: {
       opacity: 0,
-      x: 50,
-      scale: 0,
+      x: 20,
     },
     visible: {
       opacity: 1,
       x: 0,
-      scale: 1,
       transition: {
+        ease: "easeInOut",
+        duration: 0.1,
         staggerChildren: 0.1,
-        delayChildren: 0.14,
-        staggerDirection: 1,
-        type: "spring",
-        stiffness: 80,
-        damping: 20,
+        delayChildren: 0.1,
       },
     },
   };

@@ -140,7 +140,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+    <motion.div className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48"
+      initial={{ opacity: 0, y: -180 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ ease: "easeInOut", duration: 1, delay: 0.6 }}
+    >
       {/* LOGO */}
       <Logo />
 
@@ -202,7 +206,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

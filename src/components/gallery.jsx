@@ -29,18 +29,18 @@ export default function Gallery() {
         offset: ['start end', 'end start'],
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight * 2.5]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight / 4]);
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight * 3]);
-    const y4 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight / 3.2]);
+    const y = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight / 1.2]);
+    const y2 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight * 1.1]);
+    const y3 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight / 1.5]);
+    const y4 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight * 1]);
 
     
     return (
-      <main className="container mx-auto">
-        <div className=""></div>
+      <main className="w-full min-h-dvh">
+        <div className="h-100vh"></div>
         <div
           ref={container}
-          className="min-h-screen container flex gap-4 ">
+          className="relative min-h-screen flex gap-4 ">
           <Column y={y} />
           <Column y={y2} />
           <Column y={y3} />
@@ -65,8 +65,8 @@ const Column = ({ y=0 }) => {
             whileHover={{ opacity: 1, rotate: 5 }}
             transition={{ duration: 0.3 }}
             key={index}
-            className="relative overflow-hidden gap-4 rounded-xl">
-            <Image src={image} alt={image} layout="responsive" />
+            className="w-full h-full relative overflow-hidden gap-4 rounded-xl">
+            <Image src={image} alt={image} className="object-cover" />
           </motion.div>
         );
       })}

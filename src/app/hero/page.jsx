@@ -7,6 +7,7 @@ import Freelance from "@/components/freelance";
 // import Image from "next/image";
 // import imgHero from "../../images/pexels-cottonbro-studio-6892716.jpg";
 import Gallery from "@/components/gallery";
+import Marquee from "@/components/marquee";
 
 const HeroPage = () => {
 
@@ -42,10 +43,6 @@ const HeroPage = () => {
           <Gallery />
         </motion.div>
 
-        <div className="container flex flex-1 items-center justify-start">
-          <Welcome />
-        </div>
-
         <motion.div
           className="absolute z-0 w-full"
           variants={imgVariants}
@@ -58,13 +55,14 @@ const HeroPage = () => {
             className="w-full h-auto rounded-b-xl shadow-lg object-contain"
           /> */}
         </motion.div>
-        <motion.div className="container flex items-center">
-          <SlideText />
-        </motion.div>
 
-        <div className="container flex-1 flex items-center justify-end gap-4">
-          <Freelance />
+        <div className="container flex items-center flex-1">
+          <Marquee />
         </div>
+
+        {/* <div className="container flex-1 flex items-center justify-end gap-4">
+          <Freelance />
+        </div> */}
       </motion.section>
     </motion.div>
   );
