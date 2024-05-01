@@ -29,15 +29,16 @@ export default function Gallery() {
         offset: ['start end', 'end start'],
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight / 1.2]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight * 1.1]);
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight / 1.5]);
-    const y4 = useTransform(scrollYProgress, [0, 1], [0, window.innerHeight * 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+
 
     
     return (
       <main className="w-full min-h-dvh">
-        <div className="h-100vh"></div>
+        <div className="h-100%"></div>
         <div
           ref={container}
           className="relative min-h-screen flex gap-4 ">

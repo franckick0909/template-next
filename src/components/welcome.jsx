@@ -11,7 +11,6 @@ const Welcome = () => {
       x: 0,
       transition: {
         ease: "easeInOut",
-        duration: 0.1,
         staggerChildren: 0.1,
         delayChildren: 0.1,
       },
@@ -20,7 +19,7 @@ const Welcome = () => {
 
   return (
     <motion.div
-      className="max-w-full text-2xl flex-col text-slate-800 flex gap-2 z-10"
+      className="max-w-full text-lg flex-col text-slate-800 flex gap-2 z-10"
       variants={letterVariants}
       initial="hidden"
       animate="visible">

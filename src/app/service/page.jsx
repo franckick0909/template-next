@@ -1,6 +1,11 @@
+import Brain from "@/components/brain";
+
 const ServicePage = () => {
   return (
-    <div className=''>ServicePage</div>
+    <div className=''>ServicePage
+    
+      <Brain />
+    </div>
   )
 }
 

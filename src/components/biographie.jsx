@@ -5,7 +5,7 @@ const Biographie = () => {
   return (
     <div className="flex flex-col gap-12 justify-center">
       <h1 className="font-bold text-2xl">BIOGRAPHIE</h1>
-      <p>
+      <p className="text-base">
         Je suis un développeur web full stack passionné par la création de sites
         web et d'applications web. J'ai une expérience de plus de 5 ans dans le
         développement web. J'ai travaillé sur des projets allant de simples
@@ -13,7 +13,7 @@ const Biographie = () => {
         dans le développement de sites web responsives, de sites web e-commerce
         et d'applications web personnalisées.
       </p>
-      <span>
+      <span className="text-base italic">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
         cum. Delectus adipisci esse commodi rerum?
       </span>

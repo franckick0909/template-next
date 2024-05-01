@@ -14,7 +14,7 @@ const Collapse = () => {
 
   const list = {
     visible: {
-      height: "auto",
+      height: "100%",
       opacity: 1,
     },
     hidden: {
@@ -48,7 +48,7 @@ const Collapse = () => {
   return (
     <AnimatePresence>
       <div className="w-full h-auto flex flex-col gap-4 overflow-hidden border-y-[0.5px] border-slate-900 pt-8 pb-4">
-        <div className="flex justify-between items-center ">
+        <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Mon Portfolio #1</h1>
           <h2>React, Sass, Framer-motion</h2>
           <h2>2024</h2>

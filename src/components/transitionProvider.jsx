@@ -15,21 +15,21 @@ const TransitionProvider = ({ children }) => {
         animate="visible"
         exit="exit"
         key={pathName}
-        className="w-full h-screen ">
+        className="w-full h-screen">
         <motion.div
           id="banner-1"
-          className="h-full bg-black z-10 fixed top-0 left-0 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-0 w-1/4"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
           transition={{ duration: 0.5, ease: "easeOut" }}></motion.div>
         <motion.div
           id="banner-1"
-          className="h-full bg-black z-10 fixed top-0 left-0 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-0 w-1/4"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.2 } }}></motion.div>
         <motion.div
           id="banner-2"
-          className="h-full bg-black z-10 fixed top-0 left-1/4 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-1/4 w-1/4"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
           transition={{
@@ -39,7 +39,7 @@ const TransitionProvider = ({ children }) => {
           }}></motion.div>
         <motion.div
           id="banner-2"
-          className="h-full bg-black z-10 fixed top-0 left-1/4 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-1/4 w-1/4"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.4 } }}></motion.div>
 
@@ -54,7 +54,7 @@ const TransitionProvider = ({ children }) => {
 
         <motion.div
           id="banner-3"
-          className="h-full bg-black z-10 fixed top-0 left-2/4 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-2/4 w-1/4"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
           transition={{
@@ -64,12 +64,12 @@ const TransitionProvider = ({ children }) => {
           }}></motion.div>
         <motion.div
           id="banner-3"
-          className="h-full bg-black z-10 fixed top-0 left-2/4 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-2/4 w-1/4"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.6 } }}></motion.div>
         <motion.div
           id="banner-4"
-          className="h-full bg-black z-10 fixed top-0 left-3/4 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-3/4 w-1/4"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
           transition={{
@@ -79,7 +79,7 @@ const TransitionProvider = ({ children }) => {
           }}></motion.div>
         <motion.div
           id="banner-4"
-          className="h-full bg-black z-10 fixed top-0 left-3/4 w-1/4"
+          className="h-full bg-black z-40 fixed top-0 left-3/4 w-1/4"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.8 } }}></motion.div>
         <div className="h-16">

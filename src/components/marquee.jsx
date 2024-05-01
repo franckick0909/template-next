@@ -72,12 +72,12 @@ const AnimatedLetters = ({ title, disabled }) => {
 
 const BannerRowTop = ({ title }) => {
   return (
-    <div className="h-full flex flex-col gap-8 flex-1">
-      <div className="min-h-[8rem] flex flex-col justify-center xl:text-[10rem] font-Space_Grotesk overflow-hidden">
+    <div className="h-full flex flex-col gap-0 flex-1 px-28">
+      <div className="min-h-[8rem] flex flex-col justify-center items-start xl:text-[10rem] font-Space_Grotesk overflow-hidden">
         <AnimatedLetters title={title} />
       </div>
       <motion.div
-        className="flex flex-col"
+        className="flex flex-col "
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}>
@@ -91,9 +91,9 @@ const BannerRowTop = ({ title }) => {
 
 const BannerRowBottom = ({ title }) => {
   return (
-    <div className="relative flex flex-1 items-center justify-between ">
+    <div className="max-w-full w-full relative flex flex-1 items-center justify-between px-28">
       <motion.div
-        className="scroll h-40 w-40 bg-black rounded-full flex flex-col justify-center items-center cursor-pointer shadow-lg"
+        className="h-40 w-40 bg-black rounded-full flex flex-col justify-center items-center cursor-pointer shadow-lg"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ ease: "easeInOut", duration: 1, delay: 2 }}>
@@ -121,9 +121,9 @@ const BannerRowBottom = ({ title }) => {
 
 const BannerRowCenter = ({ title }) => {
   return (
-    <motion.div className="relative overflow-hidden flex w-full px-8">
+    <motion.div className="relative overflow-hidden flex w-full">
       <motion.div
-        className="max-w-full min-h-[10rem] flex gap-8 items-center xl:text-[10rem] font-Space_Grotesk overflow-hidden px-8"
+        className="max-w-full w-screen min-h-[10rem] flex gap-8 items-center xl:text-[10rem] font-Space_Grotesk overflow-hidden px-8"
         variants={marqueeAnimation}
         initial="initial"
         animate="animate">

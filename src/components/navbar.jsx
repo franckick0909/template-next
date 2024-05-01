@@ -140,7 +140,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.div className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48"
+    <motion.div className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20"
       initial={{ opacity: 0, y: -180 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ease: "easeInOut", duration: 1, delay: 0.6 }}
@@ -149,7 +149,7 @@ const Navbar = () => {
       <Logo />
 
       {/* MENU */}
-      <div className="hidden w-full md:flex items-center justify-end gap-4 md:text-sm lg:text-lg mr-12">
+      <div className="hidden w-full md:flex items-center justify-end gap-4 md:text-base lg:text-lg mr-12">
         {links.map((link) => (
           <NavLink key={link.title} link={link} />
         ))}
@@ -158,7 +158,7 @@ const Navbar = () => {
       {/* MENU RESPONSIVE */}
       <div className="">
         {/* BURGER BUTTON */}
-        <div className="fixed top-4 right-4 sm:right-8 md:right-12 lg:right-20 xl:right-48 z-50">
+        <div className="fixed top-4 right-4 sm:right-8 md:right-12 lg:right-16 xl:right-20 z-50">
           <button
             className=" w-8 h-8 flex flex-col items-center justify-center gap-[5px] z-50 relative"
             onClick={() => setIsOpen((prev) => !prev)}>

@@ -33,10 +33,15 @@ const HeroPage = () => {
 
 
   return (
-    <motion.div layout>
-      <motion.section className="relative w-full min-h-dvh m-auto flex flex-col gap-8 items-center justify-center px-4 sm:px-8 md:px-12 lg:px20 xl:px48 text-xl overflow-hidden">
+    <motion.div
+      layout
+      className="w-full"
+      initial={{ y: "200vh" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1 }}>
+      <motion.section className="relative w-full min-h-dvh m-auto flex flex-col gap-8 items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 overflow-hidden">
         <motion.div
-          className="absolute container mx-auto"
+          className="absolute container mx-auto max-w-max z-[1]"
           variants={imgVariants}
           initial="hidden"
           animate="visible">
@@ -44,7 +49,7 @@ const HeroPage = () => {
         </motion.div>
 
         <motion.div
-          className="absolute z-0 w-full"
+          className="absolute max-w-max"
           variants={imgVariants}
           initial="hidden"
           animate="visible">
@@ -56,7 +61,7 @@ const HeroPage = () => {
           /> */}
         </motion.div>
 
-        <div className="container flex items-center flex-1">
+        <div className="flex items-center flex-1 z-[2]">
           <Marquee />
         </div>
 

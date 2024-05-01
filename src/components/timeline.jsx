@@ -5,8 +5,8 @@ const Timeline = () => {
 
 
   return (
-    <section className="flex md:gap-24 max-md:flex-col">
-      <h1 className="font-bold text-2xl">BIOGRAPHIE</h1>
+    <section className="flex md:gap-24 max-lg:flex-col">
+      <h1 className="font-bold text-2xl">EXPERIENCE</h1>
 
       <div className="relative min-h[150px] flex flex-col justify-center items-start lg:items-center mt-24">
         <div className="absolute z-[2] left-[-1px] lg:left-[calc(50%-1px)] top-0 bottom-[0%] w-[3px] bg-black rounded shadow-lg"></div>
