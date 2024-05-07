@@ -19,7 +19,7 @@ const Welcome = () => {
 
   return (
     <motion.div
-      className="max-w-full text-lg flex-col text-slate-800 flex gap-2 z-10"
+      className="max-w-full text-lg flex-col text-slate-800 flex gap-2 z-10 pText"
       variants={letterVariants}
       initial="hidden"
       animate="visible">

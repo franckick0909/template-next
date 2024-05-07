@@ -1,8 +1,8 @@
 "use client";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Roues = () => {
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
 
   const rotateForward1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
   const rotateForward2 = useTransform(scrollYProgress, [0, 1], [0, -180]);

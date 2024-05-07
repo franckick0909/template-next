@@ -4,7 +4,6 @@ import Biographie from "@/components/biographie";
 import Skills from "@/components/skills";
 import Timeline from "@/components/timeline";
 import { motion } from "framer-motion";
-import Roues from "@/components/roues";
 import Cerveau from "@/components/cerveau";
 
 
@@ -13,16 +12,16 @@ const AboutPage = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-slate-500"
+      className="min-h-screen"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}>
-      <motion.div className="min-h-screen grid md:grid-cols-2 gap-8 p-4 md:p-8 lg:p-16 xl:p-20 lg:pr-0 relative">
-        <div className="grid gap-8 md:gap-12 lg:gap-24 xl:gap-40">
-          <div className="w-full flex flex-col text-justify">
+      <motion.div className="min-h-screen grid md:grid-cols-2 gap-8 p-4 md:px-8 lg:px-16 xl:px-20 relative mt-14">
+        <div className="grid gap-4 ">
+          <div className="w-full min-h-[calc(100vh-10rem)] flex flex-col text-justify">
             <Biographie />
 
-            <div className="w-1/6 h-full">
+            <div className="w-[14%] h-full">
               <svg
                 version="1.0"
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,12 +50,10 @@ c235 -48 438 -158 611 -330 171 -170 278 -370 331 -615 17 -80 18 -167 18
             </div>
           </div>
 
-          <div className="bg-slate-400 h-[1px] rounded"></div>
-
-          <div className="w-full flex flex-col pt-16">
+          <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col pt-16">
             <Skills />
 
-            <div className="w-1/6 h-full mt-28">
+            <div className="w-[14%] h-full mt-28">
               <svg
                 version="1.0"
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,9 +82,7 @@ c235 -48 438 -158 611 -330 171 -170 278 -370 331 -615 17 -80 18 -167 18
             </div>
           </div>
 
-          <div className="bg-slate-400 h-[1px] rounded"></div>
-
-          <div className="w-full flex flex-col pt-16">
+          <div className="min-h-[calc(100vh-4rem)] flex">
             <Timeline />
           </div>
         </div>

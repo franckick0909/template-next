@@ -3,7 +3,7 @@ import Welcome from "./welcome";
 
 const marqueeAnimation = {
     initial: {
-        x: "-100%",
+        x: "-50%",
     },
   animate: {
     x: "100%",
@@ -45,7 +45,7 @@ const Marquee = () => {
 
   return (
     <motion.div
-      className="w-full h-screen flex flex-col relative py-8"
+      className="w-full h-screen flex flex-col relative pb-12"
       variants={banner}>
       <BannerRowTop title={"brand"} />
       <BannerRowCenter title={" Franck - Chapelon "} />
@@ -72,8 +72,8 @@ const AnimatedLetters = ({ title, disabled }) => {
 
 const BannerRowTop = ({ title }) => {
   return (
-    <div className="h-full flex flex-col gap-0 flex-1 px-28">
-      <div className="min-h-[8rem] flex flex-col justify-center items-start xl:text-[10rem] font-Space_Grotesk overflow-hidden">
+    <div className="h-full w-full flex flex-col gap-0 flex-1 px-28 max-md:px-12 bg-blue-300">
+      <div className="min-h-[8rem] flex flex-col justify-center items-start overflow-hidden playfairSC">
         <AnimatedLetters title={title} />
       </div>
       <motion.div
@@ -91,9 +91,9 @@ const BannerRowTop = ({ title }) => {
 
 const BannerRowBottom = ({ title }) => {
   return (
-    <div className="max-w-full w-full relative flex flex-1 items-center justify-between px-28">
+    <div className="max-w-full w-full relative flex flex-1 flex-wrap-reverse items-center justify-between px-28 max-md:px-12 bg-blue-300">
       <motion.div
-        className="h-40 w-40 bg-black rounded-full flex flex-col justify-center items-center cursor-pointer shadow-lg"
+        className="h-40 w-40 max-lg:h-24 max-lg:w-24 bg-black rounded-full flex flex-col justify-center items-center cursor-pointer shadow-lg"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ ease: "easeInOut", duration: 1, delay: 2 }}>
@@ -112,7 +112,7 @@ const BannerRowBottom = ({ title }) => {
           down
         </motion.span>
       </motion.div>
-      <div className="min-h-[8rem] flex flex-col justify-center xl:text-[10rem] font-Space_Grotesk overflow-hidden">
+      <div className="min-h-[8rem] flex flex-col justify-center overflow-hidden playfairSC">
         <AnimatedLetters title={title} />
       </div>
     </div>
@@ -121,9 +121,9 @@ const BannerRowBottom = ({ title }) => {
 
 const BannerRowCenter = ({ title }) => {
   return (
-    <motion.div className="relative overflow-hidden flex w-full">
+    <motion.div className="relative overflow-hidden flex w-full bg-red-300">
       <motion.div
-        className="max-w-full w-screen min-h-[10rem] flex gap-8 items-center xl:text-[10rem] font-Space_Grotesk overflow-hidden px-8"
+        className="max-w-full w-screen min-h-[10rem] flex gap-8 items-center overflow-hidden px-24 popins"
         variants={marqueeAnimation}
         initial="initial"
         animate="animate">

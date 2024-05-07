@@ -4,8 +4,12 @@ import signature from "../images/signature.png";
 const Biographie = () => {
   return (
     <div className="flex flex-col gap-12 justify-center">
-      <h1 className="font-bold text-2xl">BIOGRAPHIE</h1>
-      <p className="text-base">
+      <div className="flex items-baseline gap-8">
+        <h1 className="playfair">01</h1>
+        <h2 className="font-bold text-2xl">BIOGRAPHIE</h2>
+      </div>
+
+      <p className="pText">
         Je suis un développeur web full stack passionné par la création de sites
         web et d'applications web. J'ai une expérience de plus de 5 ans dans le
         développement web. J'ai travaillé sur des projets allant de simples
@@ -13,7 +17,7 @@ const Biographie = () => {
         dans le développement de sites web responsives, de sites web e-commerce
         et d'applications web personnalisées.
       </p>
-      <span className="text-base italic">
+      <span className="pText italic">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
         cum. Delectus adipisci esse commodi rerum?
       </span>

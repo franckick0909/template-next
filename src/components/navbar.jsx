@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, animate, motion } from "framer-motion";
 import NavLink from "./navLink";
 import Logo from "./logo";
 import Social from "./social";
@@ -101,6 +101,23 @@ const Navbar = () => {
       },
     },
   };
+
+  const navVariants = {
+    initial: {
+      y: 60,
+    },
+    animate: {
+      y: 0,
+      transition: {
+        delay: 0.7,
+        staggerChildren: 0.4,
+        delayChildren: 0.2,
+        ease: "easeOut",
+        duration: 1,
+      },
+    },
+  };
+
   // const menuVariants = {
   //   close: {
   //     clipPath: "circle(0% at 50% -30%)",
@@ -140,20 +157,24 @@ const Navbar = () => {
   };
 
   return (
-    <motion.div className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20"
-      initial={{ opacity: 0, y: -180 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ ease: "easeInOut", duration: 1, delay: 0.6 }}
-    >
+    <motion.div
+      variants={navVariants}
+      initial="initial"
+      animate="animate"
+      className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 overflow-hidden">
       {/* LOGO */}
-      <Logo />
+      <motion.div
+        className="overflow-hidden text-2xl font-bold bg-white text-black rounded-full p-1 cursor-pointer hover:bg-slate-500 hover:text-white transition-all duration-300 ease-in-out shadow-lg"
+        variants={navVariants}>
+        <Logo variants={navVariants} />
+      </motion.div>
 
-      {/* MENU */}
-      <div className="hidden w-full md:flex items-center justify-end gap-4 md:text-base lg:text-lg mr-12">
+      {/* MENU TOP */}
+      <motion.div className="hidden w-full md:flex items-center justify-end gap-4 md:text-base lg:text-lg mr-12 overflow-hidden">
         {links.map((link) => (
-          <NavLink key={link.title} link={link} />
+          <NavLink key={link.title} link={link} variants={navVariants} />
         ))}
-      </div>
+      </motion.div>
 
       {/* MENU RESPONSIVE */}
       <div className="">
@@ -177,7 +198,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* DESKTOP MENU */}
+        {/* DESKTOP MENU 3 traits */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -196,7 +217,9 @@ const Navbar = () => {
                     variants={listItemsVariants}
                     className="flex justify-start z-50 w-full text-center rounded-md"
                     key={link.title}>
-                    <Link className=" cursor-pointer text-[5rem] font-bold" href={link.url}>
+                    <Link
+                      className=" cursor-pointer text-[5rem] font-bold"
+                      href={link.url}>
                       {link.title}
                     </Link>
                   </motion.div>
