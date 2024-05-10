@@ -1,10 +1,19 @@
-import Brain from "@/components/brain";
+"use client";
+
+import NavTop from "@/components/navTop";
+
+
+
 
 const ServicePage = () => {
+
+
   return (
     <div className=''>ServicePage
-    
-      <Brain />
+      
+      <div className="flex items-center justify-center ">
+        <NavTop />
+      </div>
     </div>
   )
 }

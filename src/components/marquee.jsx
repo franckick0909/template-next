@@ -47,9 +47,9 @@ const Marquee = () => {
     <motion.div
       className="w-full h-screen flex flex-col relative pb-12"
       variants={banner}>
-      <BannerRowTop title={"brand"} />
-      <BannerRowCenter title={" Franck - Chapelon "} />
-      <BannerRowBottom title={"studio"} />
+      <BannerRowTop title={"Frontend"} />
+      <BannerRowCenter title={" Franck  -  Chapelon "} />
+      <BannerRowBottom title={"React"} />
     </motion.div>
   );
 };
@@ -72,8 +72,8 @@ const AnimatedLetters = ({ title, disabled }) => {
 
 const BannerRowTop = ({ title }) => {
   return (
-    <div className="h-full w-full flex flex-col gap-0 flex-1 px-28 max-md:px-12 bg-blue-300">
-      <div className="min-h-[8rem] flex flex-col justify-center items-start overflow-hidden playfairSC">
+    <div className="h-full w-full flex flex-col gap-0 flex-1 px-28 max-md:px-12">
+      <div className="min-h-[8rem] flex flex-col justify-center items-start overflow-hidden lora font-bold">
         <AnimatedLetters title={title} />
       </div>
       <motion.div
@@ -91,7 +91,7 @@ const BannerRowTop = ({ title }) => {
 
 const BannerRowBottom = ({ title }) => {
   return (
-    <div className="max-w-full w-full relative flex flex-1 flex-wrap-reverse items-center justify-between px-28 max-md:px-12 bg-blue-300">
+    <div className="max-w-full w-full relative flex flex-1 flex-wrap-reverse items-center justify-between px-28 max-md:px-12 ">
       <motion.div
         className="h-40 w-40 max-lg:h-24 max-lg:w-24 bg-black rounded-full flex flex-col justify-center items-center cursor-pointer shadow-lg"
         initial={{ scale: 0 }}
@@ -112,7 +112,7 @@ const BannerRowBottom = ({ title }) => {
           down
         </motion.span>
       </motion.div>
-      <div className="min-h-[8rem] flex flex-col justify-center overflow-hidden playfairSC">
+      <div className="min-h-[8rem] flex flex-col justify-center overflow-hidden lora font-bold">
         <AnimatedLetters title={title} />
       </div>
     </div>
@@ -121,13 +121,13 @@ const BannerRowBottom = ({ title }) => {
 
 const BannerRowCenter = ({ title }) => {
   return (
-    <motion.div className="relative overflow-hidden flex w-full bg-red-300">
+    <motion.div className="relative overflow-hidden flex w-full">
       <motion.div
-        className="max-w-full w-screen min-h-[10rem] flex gap-8 items-center overflow-hidden px-24 popins"
+        className="max-w-full w-screen  flex gap-8 items-center overflow-hidden px-24 poppins"
         variants={marqueeAnimation}
         initial="initial"
         animate="animate">
-        <AnimatedLetters title={title} />
+        <AnimatedLetters title={title} className="overflow-hidden " />
       </motion.div>
     </motion.div>
   );

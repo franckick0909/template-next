@@ -2,20 +2,23 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { AnimatePresence, animate, motion } from "framer-motion";
-import NavLink from "./navLink";
+import { AnimatePresence, motion } from "framer-motion";
 import Logo from "./logo";
 import Social from "./social";
+import AnimatedLink from "@/app/AnimatedLink";
+import { usePathname } from "next/navigation";
 
-const links = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/portfolio", title: "Portfolio" },
-  { url: "/service", title: "Service" },
-  { url: "/contact", title: "Contact" },
-];
+  const navLinks = [
+    { text: "Home", href: "/" },
+    { text: "Portfolio", href: "/portfolio" },
+    { text: "About", href: "/about" },
+    { text: "Service", href: "/service" },
+    { text: "Contact", href: "/contact" },
+  ];
 
 const Navbar = () => {
+
+    const pathName = usePathname(); 
   const [isOpen, setIsOpen] = useState(false);
 
   const topVariants = {
@@ -170,11 +173,27 @@ const Navbar = () => {
       </motion.div>
 
       {/* MENU TOP */}
-      <motion.div className="hidden w-full md:flex items-center justify-end gap-4 md:text-base lg:text-lg mr-12 overflow-hidden">
-        {links.map((link) => (
+      <div className="hidden w-full md:flex items-center justify-end uppercase gap-12 mr-14 overflow-hidden">
+        {navLinks.map((link, index) => {
+          return (
+            <motion.div
+              key={index}
+              className="border-y relative overflow-hidden pText">
+              <Link
+                href={link.href}
+                className={` bg-black overflow-hidden ${
+                  pathName === link.href && "font-bold tracking-tighter"
+                }`}>
+                <AnimatedLink title={link.text} />
+              </Link>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* {links.map((link) => (
           <NavLink key={link.title} link={link} variants={navVariants} />
-        ))}
-      </motion.div>
+        ))}*/}
 
       {/* MENU RESPONSIVE */}
       <div className="">
@@ -212,15 +231,15 @@ const Navbar = () => {
                   Navigation
                   <Social />
                 </div>
-                {links.map((link) => (
+                {navLinks.map((link) => (
                   <motion.div
                     variants={listItemsVariants}
                     className="flex justify-start z-50 w-full text-center rounded-md"
                     key={link.title}>
                     <Link
                       className=" cursor-pointer text-[5rem] font-bold"
-                      href={link.url}>
-                      {link.title}
+                      href={link.href}>
+                      {link.text}
                     </Link>
                   </motion.div>
                 ))}
