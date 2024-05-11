@@ -3,11 +3,14 @@
 import Biographie from "@/components/biographie";
 import Skills from "@/components/skills";
 import Timeline from "@/components/timeline";
-import { motion } from "framer-motion";
+import { motion, useInView, useScroll } from "framer-motion";
+import { useRef } from "react";
 import Cerveau from "@/components/cerveau";
 
-
 const AboutPage = () => {
+
+    const skillRef = useRef();
+    const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
 
 
   return (
@@ -51,7 +54,21 @@ c235 -48 438 -158 611 -330 171 -170 278 -370 331 -615 17 -80 18 -167 18
           </div>
 
           <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col pt-16">
-            <Skills />
+            <section
+              ref={skillRef}
+              className="flex flex-col gap-12 justify-center">
+              <div className="flex items-baseline gap-8">
+                <motion.h1
+                  initial={{ x: "-300px" }}
+                  animate={isSkillRefInView ? { x: 0 } : {}}
+                  transition={{ delay: 0.2 }}
+                  className="playfair">
+                  02
+                </motion.h1>
+                <h2 className="font-bold text-2xl">SKILLS</h2>
+              </div>
+              <Skills />
+            </section>
 
             <div className="w-[14%] h-full mt-28">
               <svg

@@ -19,7 +19,7 @@ const marqueeAnimation = {
 const banner = {
   animate: {
     transition: {
-      delayChildren: 0.4,
+      delayChildren: 0.5,
       staggerChildren: 0.1,
     },
   },
@@ -27,12 +27,10 @@ const banner = {
 
 const letterAnimation = {
   initial: {
-        y: 400,
-      x: 50
+    y: 200,
   },
   animate: {
-      y: 0,
-        x: 0,
+    y: 0,
     transition: {
       duration: 1,
       ease: [0.6, 0.01, -0.05, 0.95],
@@ -45,7 +43,7 @@ const Marquee = () => {
 
   return (
     <motion.div
-      className="w-full h-screen flex flex-col relative pb-12"
+      className="w-full h-screen flex flex-col relative pb-12 bg-rose-600"
       variants={banner}>
       <BannerRowTop title={"Frontend"} />
       <BannerRowCenter title={" Franck  -  Chapelon "} />
@@ -57,12 +55,12 @@ const Marquee = () => {
 const AnimatedLetters = ({ title, disabled }) => {
   return (
     <motion.span
-      className="flex"
+      className="flex bg-green-300 h-min overflow-hidden"
       variants={disabled ? null : banner}
       initial="initial"
       animate="animate">
       {[...title].map((letter, index) => (
-        <motion.span key={index} className="flex" variants={letterAnimation}>
+        <motion.span key={index} className="inline-block p-0 m-0 white" variants={letterAnimation}>
           {letter}
         </motion.span>
       ))}
@@ -78,9 +76,7 @@ const BannerRowTop = ({ title }) => {
       </div>
       <motion.div
         className="flex flex-col "
-        initial={{ opacity: 0, y: 80 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ ease: "easeInOut", duration: 1, delay: 0.4 }}>
+>
         <div className="">
           <Welcome />
         </div>

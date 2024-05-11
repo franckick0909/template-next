@@ -8,17 +8,16 @@ import Social from "./social";
 import AnimatedLink from "@/app/AnimatedLink";
 import { usePathname } from "next/navigation";
 
-  const navLinks = [
-    { text: "Home", href: "/" },
-    { text: "Portfolio", href: "/portfolio" },
-    { text: "About", href: "/about" },
-    { text: "Service", href: "/service" },
-    { text: "Contact", href: "/contact" },
-  ];
+const navLinks = [
+  { text: "Home", href: "/" },
+  { text: "Portfolio", href: "/portfolio" },
+  { text: "About", href: "/about" },
+  { text: "Service", href: "/service" },
+  { text: "Contact", href: "/contact" },
+];
 
 const Navbar = () => {
-
-    const pathName = usePathname(); 
+  const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const topVariants = {
@@ -38,7 +37,6 @@ const Navbar = () => {
         duration: 0.5,
         ease: "easeInOut",
       },
-
     },
   };
 
@@ -81,99 +79,74 @@ const Navbar = () => {
     },
   };
 
-  const menuVariants = {
-    close: {
-      y: "-100%",
-      transition: {
-        when: "afterChildren",
-        staggerChildren: 0.1,
-        staggerDirection: -1,
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      },
-    },
-    open: {
-      y: 0,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-        type: "spring",
-        stiffness: 300,
-        damping: 35,
-      },
-    },
-  };
-
-  const navVariants = {
-    initial: {
-      y: 60,
-    },
-    animate: {
-      y: 0,
-      transition: {
-        delay: 0.7,
-        staggerChildren: 0.4,
-        delayChildren: 0.2,
-        ease: "easeOut",
-        duration: 1,
-      },
-    },
-  };
-
   // const menuVariants = {
   //   close: {
-  //     clipPath: "circle(0% at 50% -30%)",
+  //     y: "-100%",
   //     transition: {
-  //       delay: 0.2,
+  //       when: "afterChildren",
   //       staggerChildren: 0.1,
   //       staggerDirection: -1,
   //       type: "spring",
-  //       stiffness: 100,
+  //       stiffness: 300,
   //       damping: 30,
-  //       resDelta: 30,
   //     },
   //   },
   //   open: {
-  //     clipPath: "circle(200% at 50% 100%)",
+  //     y: 0,
   //     transition: {
+  //       when: "beforeChildren",
   //       staggerChildren: 0.1,
   //       type: "spring",
-  //       stiffness: 30,
-  //       damping: 40,
-  //       resDelta: 2,
+  //       stiffness: 300,
+  //       damping: 35,
   //     },
   //   },
   // };
 
-  const listItemsVariants = {
-    close: {
-      x: -10,
-      rotateX: 180,
-       opacity: 0, 
+  const menuVariants = {
+    initial: {
+      scaleY: 0,
+    },
+    animate: {
+      scaleY: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.12, 0, 0.39, 0],
       },
+    },
+    exit: {
+      scaleY: 0,
+      transition: {
+        delay: 0.5,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const containerVars = {
+    initial: {
+      transition: {
+        staggerChildren: 0.09,
+      },
+    },
     open: {
-      x: 0,
-      rotateX: 0,
-      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.09,
+      },
     },
   };
 
   return (
-    <motion.div
-      variants={navVariants}
-      initial="initial"
-      animate="animate"
-      className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 overflow-hidden">
+    <motion.header className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 overflow-hidden">
       {/* LOGO */}
-      <motion.div
-        className="overflow-hidden text-2xl font-bold bg-white text-black rounded-full p-1 cursor-pointer hover:bg-slate-500 hover:text-white transition-all duration-300 ease-in-out shadow-lg"
-        variants={navVariants}>
-        <Logo variants={navVariants} />
+      <motion.div className="overflow-hidden text-2xl font-bold bg-white text-black rounded-full p-1 cursor-pointer hover:bg-slate-500 hover:text-white transition-all duration-300 ease-in-out shadow-lg">
+        <Logo />
       </motion.div>
 
       {/* MENU TOP */}
-      <div className="hidden w-full md:flex items-center justify-end uppercase gap-12 mr-14 overflow-hidden">
+      <nav className="hidden w-full md:flex items-center justify-end uppercase gap-12 mr-14 overflow-hidden">
         {navLinks.map((link, index) => {
           return (
             <motion.div
@@ -189,7 +162,7 @@ const Navbar = () => {
             </motion.div>
           );
         })}
-      </div>
+      </nav>
 
       {/* {links.map((link) => (
           <NavLink key={link.title} link={link} variants={navVariants} />
@@ -220,36 +193,74 @@ const Navbar = () => {
         {/* DESKTOP MENU 3 traits */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
+            <motion.nav
               variants={menuVariants}
-              initial="close"
-              animate="open"
-              exit="close"
-              className="flex flex-col justify-center items-center gap-2 fixed left-0 top-0 bg-black text-white w-full min-h-screen h-auto z-40 py-16">
-              <div className=" flex flex-col items-end justify-center gap-6 w-[80%] h-[90%]">
-                <div className="flex items-center justify-between w-full mb-8 border-transparent border-y-slate-600 border-y-[0.5px] py-8 text-sm text-slate-600 ">
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="fixed left-0 top-0 w-full h-screen z-40 p-10 bg-black flex justify-center items-center origin-top">
+              <div className="h-full flex flex-col justify-center items-start w-3/4">
+                <div className="flex items-center justify-between w-full mb-4 border-transparent border-y-slate-600 border-y-[0.5px] py-8 text-sm text-slate-600 ">
                   Navigation
                   <Social />
                 </div>
-                {navLinks.map((link) => (
-                  <motion.div
-                    variants={listItemsVariants}
-                    className="flex justify-start z-50 w-full text-center rounded-md"
-                    key={link.title}>
-                    <Link
-                      className=" cursor-pointer text-[5rem] font-bold"
-                      href={link.href}>
-                      {link.text}
-                    </Link>
-                  </motion.div>
-                ))}
+                <motion.div
+                  variants={containerVars}
+                  initial="initial"
+                  animate="open"
+                  exit="initial"
+                  className="flex flex-col h-full w-full justify-center gap-0 font-serif font-normal">
+                  {navLinks.map((link, index) => {
+                    return (
+                      <div key={index} className="overflow-hidden">
+                        <MobileNavLink link={link.text} href={link.href} />
+                      </div>
+                    );
+                  })}
+                </motion.div>
               </div>
-            </motion.div>
+            </motion.nav>
           )}
         </AnimatePresence>
       </div>
-    </motion.div>
+    </motion.header>
   );
 };
 
 export default Navbar;
+
+const mobileLinkVars = {
+  initial: {
+    y: "30vh",
+    transition: {
+      duration: 0.5,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+  open: {
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0, 0.55, 0.45, 1],
+    },
+  },
+};
+
+
+
+
+const MobileNavLink = ({ link, href }) => {
+  return (
+    <motion.div
+      variants={mobileLinkVars}
+      className="lora-MobileNav relative group">
+      {/* <span className="absolute left-0 -bottom-1 w-full h-1 bg-blue-400 -z-10 group-hover:h-full group-hover:transition-all"></span> */}
+      <span className="w-full rounded bg-gradient-to-r to-transparent via-slate-950 from-slate-800 absolute bottom-0 ease-out duration-500 transition-all group-hover:w-full group-hover:h-full z-[-1] scale-y-0 group-hover:scale-y-75 bg-origin-content cursor-pointer "></span>
+      <Link
+        href={href}
+        className="cursor-pointer z-[3000] text-white uppercase w-full group-hover:tracking-widest ease-linear duration-300">
+        {link}
+      </Link>
+    </motion.div>
+  );
+};
