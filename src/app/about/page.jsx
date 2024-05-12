@@ -10,7 +10,10 @@ import Cerveau from "@/components/cerveau";
 const AboutPage = () => {
 
     const skillRef = useRef();
-    const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+  const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+  
+    const TimelineRef = useRef();
+    const isTimelineRefInView = useInView(TimelineRef, { margin: "-100px" });
 
 
   return (
@@ -99,8 +102,23 @@ c235 -48 438 -158 611 -330 171 -170 278 -370 331 -615 17 -80 18 -167 18
             </div>
           </div>
 
-          <div className="min-h-[calc(100vh-4rem)] flex">
-            <Timeline />
+          <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col pt-16">
+            <section
+              ref={TimelineRef}
+              className="flex flex-col gap-12 justify-center w-full">
+              <div className="flex items-baseline gap-8">
+                <motion.h1
+                  initial={{ x: "-300px" }}
+                  animate={isTimelineRefInView ? { x: 0 } : {}}
+                  transition={{ delay: 0.2 }}
+                  className="playfair">
+                  03
+                </motion.h1>
+                <h2 className="font-bold text-2xl">EXPERIENCES</h2>
+              </div>
+
+              <Timeline />
+            </section>
           </div>
         </div>
 
