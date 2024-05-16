@@ -4,50 +4,67 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import SvgScroll from "@/components/svgScroll";
+import Link from "next/link";
+import { BsArrowDownRight } from "react-icons/bs";
+import img1 from "@/images/services/img1.jpeg"
+import img2 from "@/images/services/img2.jpeg"
+import img3 from "@/images/services/img3.jpeg"
+import img4 from "@/images/services/img4.jpeg"
+
 
 const ServicePage = () => {
   const data = [
     {
       id: 1,
-      title: "Web Development",
+      num: "01",
+      title: "Entretien initial",
       description:
-        "I can build a website for you using the latest technologies like React, Next.js, TailwindCSS, etc.",
+        "Prenez un café, un thé ou une bière et discutons. Je veux savoir comment vous avez commencé, ce que vous faites actuellement et où vous allez. Il est temps pour vous de partager votre vision. J'arrive avec beaucoup de questions, mais les questions sont simplement là pour aider à guider la conversation.",
+        href: "/service/entretien-initial",
+        img: img1,
     },
     {
       id: 2,
-      title: "Mobile Development",
+      num: "02",
+      title: "Maquette du projet",
       description:
-        "I can build a mobile app for you using the latest technologies like React Native, Expo, etc.",
+        "Réalisations d'une maquette prête à l'emploi pour votre site web, en utilisant les dernières technologies comme Figma. Vous pourrez ainsi visualiser le rendu final de votre site web avant même de commencer le développement.",
+        href: "/service/maquette-projet",
+        img: img2,
     },
     {
       id: 3,
-      title: "Backend Development",
+      num: "03",
+      title: "Référencement Naturel (SEO)",
       description:
-        "I can build a backend for your website or mobile app using the latest technologies like Node.js, Express, etc.",
+        "Optimisation de votre site web pour les moteurs de recherche en utilisant les dernières technologies. Rapidité et performance sur l'ensemble de mes réalisations.",
+        href: "/service/seo",
+        img: img3,
     },
     {
       id: 4,
+      num: "04",
       title: "UI/UX Design",
       description:
         "I can design a user interface for your website or mobile app using the latest technologies like Figma, Adobe XD, etc.",
+        href: "/service/ui-ux-design",
+        img: img4,
     },
     {
       id: 5,
+      num: "05",
       title: "SEO",
       description:
         "I can optimize your website for search engines using the latest technologies like Google Analytics, Google Search Console, etc.",
+        href: "/service/seo",
     },
     {
       id: 6,
+      num: "06",
       title: "Social Media Marketing",
       description:
         "I can promote your website or mobile app on social media using the latest technologies like Facebook, Instagram, etc.",
-    },
-    {
-      id: 7,
-      title: "Content Writing",
-      description:
-        "I can write content for your website or mobile app using the latest technologies like Grammarly, Hemingway, etc.",
+        href: "/service/social-media-marketing",
     },
   ];
 
@@ -56,7 +73,7 @@ const ServicePage = () => {
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-87.5%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85.8%"]);
 
   return (
     <motion.div
@@ -73,16 +90,30 @@ const ServicePage = () => {
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center bg-green-600" />
+            <div className="h-screen w-screen flex items-center bg-slate-200" />
             {data.map((item) => (
               <div
                 key={item.id}
                 className="w-screen h-screen flex flex-col px-4 py-16 xl:p-20 bg-slate-200">
-                <div className="container mx-auto h-full flex flex-col items-center justify-center rounded-lg border border-gray-200 p-20 shadow-sm transition-colors hover:border-gray-900 dark:border-gray-800 dark:hover:border-gray-50 ">
-                  <div className="flex flex-col justify-start">
-                    <h2 className="">{item.title}</h2>
-                    <p className="pText">{item.description}</p>
+                <div className="container mx-auto flex-1 flex flex-col justify-center gap-6 rounded-lg px-10 xl:px-32 bg-slate-50 group shadow-lg ">
+
+                  <div className="pt-4 w-full h-[300px] flex justify-center aspect-video rounded-lg shadow-lg">
+                    <Image src={item.img} alt="img" 
+                      className="max-w-full w-full h-[300px] block object-cover object-center rounded-lg transition-all duration-800 hover:h-[350px] md:hover:h-[400px] lg:hover:h-[500px] xl:hover:h-[580px] shadow-lg"
+                     />
                   </div>
+
+
+                  <div className="w-full flex justify-between items-center">
+                    <div className="kalnia font-extrabold group-hover:text-violet-300 transition-all duration-300">{item.num}</div>
+                    <Link href={item.href} className="max-w-[70px] max-h-[70px] w-full h-full rounded-full bg-slate-900 group-hover:bg-violet-300 transition-all duration-300 flex items-center justify-center hover:-rotate-90 shadow-md">
+                      <BsArrowDownRight className="text-3xl text-white group-hover:text-black" />
+                    </Link>
+                  </div>
+
+                  <h2 className="text-[42px] font-bold text-slate-900 leading-none group-hover:text-violet-300 transition-all duration-300 ">{item.title}</h2>
+                  <p className="text-lg text-slate-600">{item.description}</p>
+                  <div className="border-b border-white/20 w-full"></div>
                 </div>
               </div>
             ))}
