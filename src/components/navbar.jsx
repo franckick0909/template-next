@@ -155,7 +155,7 @@ const Navbar = () => {
               <Link
                 href={link.href}
                 className={` bg-black overflow-hidden ${
-                  pathName === link.href && "font-bold tracking-tighter"
+                  pathName === link.href && "font-bold tracking-tighter text-fuchsia-700"
                 }`}>
                 <AnimatedLink title={link.text} />
               </Link>

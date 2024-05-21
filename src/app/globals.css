@@ -18,15 +18,17 @@ html {
   scroll-behavior: smooth;
 }
 
-.kalnia {
-  font-family: 'Kalnia', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: clamp(5rem, 7vw, 10rem);
-  line-height: 1.5;
+.bgGradient {
+  background: -webkit-linear-gradient(#ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.kalnia-hover {
-  -webkit-text-stroke: 2px rgba(76, 0, 130, 0.4);
+
+
+.stardos-stencil-regular {
+  font-family: "Stardos Stencil", system-ui;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-weight: 700;
 }
 
 .stardos-stencil-bold {
@@ -37,6 +39,12 @@ html {
   line-height: 1.5;
   -webkit-text-stroke: 1px #fff;
   transition: all 0.2s ease;
+}
+
+.stardos-stencil {
+  font-family: "Stardos Stencil", system-ui;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  line-height: 1.5;
 }
 
 .stardos-stencil-bold:hover {
@@ -90,7 +98,7 @@ html {
 
 
 .dropShadow{
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 .pText{
   font-size: clamp(0.95rem, 1.5vw, 1.125rem);
@@ -106,18 +114,18 @@ h2{
   font-size: clamp(1.5rem, 3vw, 3.5rem);
   font-weight: bold;
   line-height: 1.5;
-
+  font-family: "kalnia", sans-serif;
 }
 h4{
-  font-size: clamp(1.25rem, 2vw, 1.4rem);
-  font-weight: bold;
+  font-size: clamp(1rem, 4vw, 1.0625rem);
+  font-weight: 600;
   line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 .grider {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   box-sizing: border-box;
 }
 .grider50 {

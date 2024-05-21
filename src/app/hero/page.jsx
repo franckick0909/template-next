@@ -8,6 +8,7 @@ import Freelance from "@/components/freelance";
 // import imgHero from "../../images/pexels-cottonbro-studio-6892716.jpg";
 import Gallery from "@/components/gallery";
 import Marquee from "@/components/marquee";
+import PhraseSplit from "@/components/phraseSplit";
 
 const HeroPage = () => {
 
@@ -47,6 +48,8 @@ const HeroPage = () => {
           animate="visible">
           <Gallery />
         </motion.div>
+
+        <PhraseSplit />
 
         <motion.div
           className="absolute max-w-max"

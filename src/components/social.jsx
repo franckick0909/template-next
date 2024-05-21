@@ -7,6 +7,7 @@ import {
   FaLinkedin,
   FaGithub,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
 const Social = () => {
@@ -54,8 +55,8 @@ const Social = () => {
         variants={socialVariants}
         target="_blank"
         rel="noreferrer"
-        className="text-2xl text-blue-400 hover:text-blue-600">
-        <FaTwitter />
+        className="text-2xl text-slate-400 hover:text-white">
+        <FaXTwitter />
       </motion.a>
       <motion.a
         href="https://www.linkedin.com"

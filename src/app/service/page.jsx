@@ -6,11 +6,10 @@ import Image from "next/image";
 import SvgScroll from "@/components/svgScroll";
 import Link from "next/link";
 import { BsArrowDownRight } from "react-icons/bs";
-import img1 from "@/images/services/img1.jpeg"
-import img2 from "@/images/services/img2.jpeg"
-import img3 from "@/images/services/img3.jpeg"
-import img4 from "@/images/services/img4.jpeg"
-
+import img1 from "@/images/services/img1.jpeg";
+import img2 from "@/images/services/img2.jpeg";
+import img3 from "@/images/services/img3.jpeg";
+import img4 from "@/images/services/img4.jpeg";
 
 const ServicePage = () => {
   const data = [
@@ -20,8 +19,8 @@ const ServicePage = () => {
       title: "Entretien initial",
       description:
         "Prenez un café, un thé ou une bière et discutons. Je veux savoir comment vous avez commencé, ce que vous faites actuellement et où vous allez. Il est temps pour vous de partager votre vision. J'arrive avec beaucoup de questions, mais les questions sont simplement là pour aider à guider la conversation.",
-        href: "/service/entretien-initial",
-        img: img1,
+      href: "/service/entretien-initial",
+      img: img1,
     },
     {
       id: 2,
@@ -29,8 +28,8 @@ const ServicePage = () => {
       title: "Maquette du projet",
       description:
         "Réalisations d'une maquette prête à l'emploi pour votre site web, en utilisant les dernières technologies comme Figma. Vous pourrez ainsi visualiser le rendu final de votre site web avant même de commencer le développement.",
-        href: "/service/maquette-projet",
-        img: img2,
+      href: "/service/maquette-projet",
+      img: img2,
     },
     {
       id: 3,
@@ -38,8 +37,8 @@ const ServicePage = () => {
       title: "Référencement Naturel (SEO)",
       description:
         "Optimisation de votre site web pour les moteurs de recherche en utilisant les dernières technologies. Rapidité et performance sur l'ensemble de mes réalisations.",
-        href: "/service/seo",
-        img: img3,
+      href: "/service/seo",
+      img: img3,
     },
     {
       id: 4,
@@ -47,8 +46,8 @@ const ServicePage = () => {
       title: "UI/UX Design",
       description:
         "I can design a user interface for your website or mobile app using the latest technologies like Figma, Adobe XD, etc.",
-        href: "/service/ui-ux-design",
-        img: img4,
+      href: "/service/ui-ux-design",
+      img: img4,
     },
     {
       id: 5,
@@ -56,7 +55,7 @@ const ServicePage = () => {
       title: "SEO",
       description:
         "I can optimize your website for search engines using the latest technologies like Google Analytics, Google Search Console, etc.",
-        href: "/service/seo",
+      href: "/service/seo",
     },
     {
       id: 6,
@@ -64,7 +63,7 @@ const ServicePage = () => {
       title: "Social Media Marketing",
       description:
         "I can promote your website or mobile app on social media using the latest technologies like Facebook, Instagram, etc.",
-        href: "/service/social-media-marketing",
+      href: "/service/social-media-marketing",
     },
   ];
 
@@ -80,7 +79,8 @@ const ServicePage = () => {
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
-      className="h-full bg-blue-200">
+      className="h-full bg-violet-200"
+    >
       <section className="h-[800vh] relative" ref={ref}>
         <div className="w-full h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
           <h1 className="playfairSC uppercase">Mes Services</h1>
@@ -90,30 +90,42 @@ const ServicePage = () => {
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center bg-slate-200" />
+            <div className="h-screen w-screen flex items-center bg-slate-600" />
             {data.map((item) => (
               <div
                 key={item.id}
-                className="w-screen h-screen flex flex-col px-4 py-16 xl:p-20 bg-slate-200">
-                <div className="container mx-auto flex-1 flex flex-col justify-center gap-6 rounded-lg px-10 xl:px-32 bg-slate-50 group shadow-lg ">
+                className="w-screen h-screen flex px-4 py-16 xl:p-20 bg-slate-600"
+              >
+                <div className="flex justify-between items-center bg-slate-50 shadow-lg max-w-max rounded-lg p-4 gap-4  max-lg:flex-col">
+                  <div className="w-full h-full flex-1 flex flex-col rounded-s-lg group">
+                    <div className="w-full flex justify-between items-center">
+                      <div className="kalnia font-extrabold group-hover:text-violet-300 transition-all duration-300 dropShadow ">
+                        {item.num}
+                      </div>
+                      <Link
+                        href={item.href}
+                        className="max-w-[70px] max-h-[70px] w-full h-full rounded-full bg-slate-900 group-hover:bg-violet-300 transition-all duration-300 flex items-center justify-center hover:-rotate-90 shadow-md"
+                      >
+                        <BsArrowDownRight className="text-3xl text-white group-hover:text-black" />
+                      </Link>
+                    </div>
 
-                  <div className="pt-4 w-full h-[300px] flex justify-center aspect-video rounded-lg shadow-lg">
-                    <Image src={item.img} alt="img" 
-                      className="max-w-full w-full h-[300px] block object-cover object-center rounded-lg transition-all duration-800 hover:h-[350px] md:hover:h-[400px] lg:hover:h-[500px] xl:hover:h-[580px] shadow-lg"
-                     />
+                    <div className="flex flex-col gap-12">
+                      <h2 className="text-[42px] font-bold text-slate-900 leading-none group-hover:text-violet-300 transition-all duration-300 dropShadow">
+                        {item.title}
+                      </h2>
+                      <p className="pText text-slate-600 mt-20">{item.description}</p>
+                      <div className="border-b border-violet-300 w-full"></div>
+                    </div>
                   </div>
 
-
-                  <div className="w-full flex justify-between items-center">
-                    <div className="kalnia font-extrabold group-hover:text-violet-300 transition-all duration-300">{item.num}</div>
-                    <Link href={item.href} className="max-w-[70px] max-h-[70px] w-full h-full rounded-full bg-slate-900 group-hover:bg-violet-300 transition-all duration-300 flex items-center justify-center hover:-rotate-90 shadow-md">
-                      <BsArrowDownRight className="text-3xl text-white group-hover:text-black" />
-                    </Link>
+                  <div className="flex-1 flex rounded-e-lg">
+                    <Image
+                      src={item.img}
+                      alt="img"
+                      className="object-cover rounded-e-lg"
+                    />
                   </div>
-
-                  <h2 className="text-[42px] font-bold text-slate-900 leading-none group-hover:text-violet-300 transition-all duration-300 ">{item.title}</h2>
-                  <p className="text-lg text-slate-600">{item.description}</p>
-                  <div className="border-b border-white/20 w-full"></div>
                 </div>
               </div>
             ))}
