@@ -4,26 +4,26 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 
-const PhraseSplit = () => {
+const PhraseSplit = ({ phrase }) => {
 
-    const phrase = "Je suis spécialisé dans le développement front-end et la création de site web. J'aime travailler sur des projets qui me permettent de m'améliorer et d'apprendre de nouvelles choses. J'ai une bonne connaissance des technologies web et je suis toujours à la recherche de nouveaux défis.";
+
 
 
 const slideUp = {
     initial: {
-        y: "30vh",
+        y: 100,
         opacity: 0,
     },
     open: (i) => ({
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.5,
-            delay: 0.04 * i,
+            duration: 1,
+            delay: 0.09 * i,
         },
     }),
     closed: {
-        y: "30vh",
+        y: 200,
         opacity: 0,
     },
 };
@@ -34,7 +34,7 @@ const  isInView  = useInView(container, { margin: "-100px"});
 
 
   return (
-    <div ref={container} className="p-10">
+    <div ref={container} className="">
         <div className="flex max-w-full justify-between gap-[50px]">
             <p className="flex gap-2 flex-wrap">
                 {phrase.split(" ").map((word, index) => {

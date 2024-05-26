@@ -49,7 +49,10 @@ const HeroPage = () => {
           <Gallery />
         </motion.div>
 
-        <PhraseSplit />
+
+<div className="">
+  {PhraseSplit({ phrase: "Je suis spécialisé dans le développement front-end et la création de site web. J'aime travailler sur des projets qui me permettent de m'améliorer et d'apprendre de nouvelles choses. J'ai une bonne connaissance des technologies web et je suis toujours à la recherche de nouveaux défis." })}
+</div>
 
         <motion.div
           className="absolute max-w-max"

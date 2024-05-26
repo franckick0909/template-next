@@ -3,25 +3,6 @@
 import { motion } from "framer-motion";
 
 const SvgScroll = () => {
-  //   const svgVariants = {
-  //     initial: {
-  //       pathLength: 0,
-  //           fill: "#000000",
-  //           offset: 0,
-  //     },
-  //       animate: {
-  //         offset: 1,
-  //       pathLength: 1,
-  //       fill: ["#ffffff", "#000000"],
-  //       transition: {
-  //         duration: 2,
-  //         ease: "linear",
-  //         repeat: Infinity,
-  //         repeatType: "reverse",
-  //       },
-  //     },
-  //   };
-
   return (
     <div className="flex flex-col items-center justify-center">
       <svg
@@ -29,16 +10,18 @@ const SvgScroll = () => {
         width="100%"
         height="100%"
         viewBox="0 0 820.000000 512.000000"
-        preserveAspectRatio="xMidYMid meet">
+        preserveAspectRatio="xMidYMid meet"
+      >
         <g
           transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
           fill="#000000"
-          stroke="none">
+          stroke="none"
+        >
           <motion.path
-            initial={{ pathLength: 0, fill: "#00000029", offset: 0 }}
+            initial={{ pathLength: 0, fill: "#ffffff", offset: 0 }}
             animate={{
               pathLength: 1,
-              fill: ["#00000029", "#00000059"],
+              fill: ["#ffffff", "rgba(255, 0, 255, 0.5)"],
               offset: 1,
             }}
             transition={{
@@ -73,21 +56,31 @@ c235 -48 438 -158 611 -330 171 -170 278 -370 331 -615 17 -80 18 -167 18
           />
         </g>
       </svg>
-      <p>Scroll Down</p>
+
+        <motion.p
+          initial={{ y: 0, scaleX: 1 }}
+          animate={{ y: 10, scaleX: 0.95}}
+          transition={{
+            duration: 1.5,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="text-black"
+        >Scroll Down</motion.p>
     </div>
   );
 };
 
 export default SvgScroll;
 
-
-            // fill="#00000049"
-            // strokeWidth="0.2"
-            // initial={{ pathLength: 0, y: 0 }}
-            // animate={isInview && { pathLength: 1, y: -30 }}
-            // transition={{
-            //   duration: 2,
-            //   ease: "easeInOut",
-            //   repeat: Infinity,
-            //   repeatType: "reverse",
-            // }}
+// fill="#00000049"
+// strokeWidth="0.2"
+// initial={{ pathLength: 0, y: 0 }}
+// animate={isInview && { pathLength: 1, y: -30 }}
+// transition={{
+//   duration: 2,
+//   ease: "easeInOut",
+//   repeat: Infinity,
+//   repeatType: "reverse",
+// }}

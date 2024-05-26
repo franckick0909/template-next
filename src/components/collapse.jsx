@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaCode, FaPlus } from "react-icons/fa6";
+import { FaCode, FaPlus, FaMinus } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const Collapse = ({
@@ -24,6 +24,13 @@ const Collapse = ({
   const handleCollapse = () => {
     setOpenCollapse(!openCollapse);
   };
+
+  const icon = openCollapse ? <FaMinus className="w-7 h-7" /> : 
+  <motion.div
+    whileHover={{ rotate: 90 }}
+   className="hover:rotate-90">
+    <FaPlus className="w-7 h-7" />
+    </motion.div>
 
   const list = {
     visible: {
@@ -88,10 +95,10 @@ const Collapse = ({
             <h2 className="stardos-stencil-regular bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{title}</h2>
 
             <button
-              className="text-white bg-slate-600 px-4 py-2 rounded-md text-base max-md:block hidden"
+              className="text-white bg-slate-700 rounded-full p- text-base max-md:block hidden z-50"
               onClick={handleCollapse}
             >
-              <FaPlus className="w-5 h-5" />
+              {icon}
             </button>
           </div>
           <motion.div
@@ -99,7 +106,7 @@ const Collapse = ({
             initial="hiddenHover"
             animate={hovered ? "visibleHover" : "hiddenHover"}
             exit="hiddenHover"
-            className="absolute max-w-52 max-h-36 top-[-20%] left-1/2 rounded-lg opacity-70 z-40"
+            className="absolute w-80 h-auto top-[-20%] left-1/2 rounded-lg opacity-70 z-40"
           >
             <Image
               src={imgProjet}
@@ -118,10 +125,10 @@ const Collapse = ({
 
           <div className="flex-1 h-full flex items-center justify-end w-full max-md:justify-start max-md:hidden">
             <button
-              className="text-slate-900 px-4 py-2 rounded-md text-base"
+              className="text-white bg-slate-700 rounded-full p-3 text-base z-20"
               onClick={handleCollapse}
             >
-              <FaPlus className="w-6 h-6" />
+              {icon}
             </button>
           </div>
         </div>
@@ -133,6 +140,7 @@ const Collapse = ({
           variants={list}
           initial="hidden"
           animate={openCollapse ? "visible" : "hidden"}
+          
         >
           <motion.div
             className="w-full h-max px-4 py-4 bg-white rounded-md overflow-hidden max-md:text-sm text-base  grider gap-4 shadow-md"
@@ -150,20 +158,20 @@ const Collapse = ({
             </motion.div>
 
             <motion.div
-              className="h-full w-full flex-col p-4 rounded-md bg-gradient-to-r from-slate-400 to-slate-600  max-md:text-sm text-base shadow-md"
+              className="w-full h-full p-4 rounded-md bg-slate-200 max-md:text-sm text-base shadow-md"
               variants={item}
             >
               <h4 className="text-black">THEME</h4>
-              <div className="border-y-[0.5px] bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent mb-4"></div>
-              <p className="max-md:text-sm text-base text-white">{theme}</p>
+              <div className="border-fuchsia-500 mb-4 border-[1px]"></div>
+              <p className="max-md:text-sm text-base text-black">{theme}</p>
             </motion.div>
 
             <motion.div
-              className="h-full w-full flex flex-col p-4 rounded-md bg-gradient-to-r from-slate-400 to-slate-600 max-md:text-sm text-base shadow-md"
+              className="w-full h-full p-4 rounded-md bg-slate-200 max-md:text-sm text-base shadow-md"
               variants={item}
             >
               <h4 className="text-black">URL</h4>
-              <div className="border-y-[0.5px] bg-gradient-to-r from-fuchsia-500 to-cyan-500 mb-4"></div>
+              <div className="border-fuchsia-500 mb-4 border-[1px]"></div>
 
               <div className="flex flex-col gap-4 flex-wrap w-full">
  
@@ -171,7 +179,7 @@ const Collapse = ({
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between gap-2 text-black text-sm bg-slate-200 hover:text-white hover:bg-slate-400 px-4 py-2 rounded-md z-50 transition-all duration-300 ease-in-out shadow-md"
+                    className="flex items-center justify-between gap-2 text-black text-sm bg-slate-300 hover:text-white hover:bg-slate-400 px-4 py-2 rounded-md z-50 transition-all duration-300 ease-in-out shadow-md"
                   >
                     Voir le code
                     <span className="text-white">
@@ -183,7 +191,7 @@ const Collapse = ({
                     target="_blank"
                     rel="noreferrer"
                     href={github}
-                    className="flex items-center justify-between gap-2 text-black text-sm bg-slate-200 hover:text-white hover:bg-slate-400 px-4 py-2 rounded-md z-50 transition-all duration-300 ease-in-out shadow-md"
+                    className="flex items-center justify-between gap-2 text-black text-sm bg-slate-300 hover:text-white hover:bg-slate-400 px-4 py-2 rounded-md z-50 transition-all duration-300 ease-in-out shadow-md"
                   >
                     Consulter le site
                     <span className="text-white">
@@ -195,12 +203,12 @@ const Collapse = ({
             </motion.div>
 
             <motion.div
-              className="w-full h-full p-4 rounded-md bg-gradient-to-r from-slate-400 to-slate-600 max-md:text-sm text-base shadow-md"
+              className="w-full h-full p-4 rounded-md bg-slate-200 max-md:text-sm text-base shadow-md"
               variants={item}
             >
               <h4 className="text-black">DESCRIPTION</h4>
-              <div className="border-y-[0.5px] bg-gradient-to-r from-fuchsia-500 to-cyan-500 mb-4"></div>
-              <p className="max-md:text-sm text-base text-white">{desc}</p>
+              <div className="border-fuchsia-500 mb-4 border-[1px]"></div>
+              <p className="max-md:text-sm text-base text-black">{desc}</p>
             </motion.div>
           </motion.div>
         </motion.div>

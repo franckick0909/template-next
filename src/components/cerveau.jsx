@@ -16,7 +16,7 @@ const Cerveau = () => {
     const color = useTransform(
       scrollYProgress,
       [0, 0.5, 1],
-      ["#000814", "#003566", "#ffc300"]
+      ["#000814", "#ff00ff90", "#4b0082"]
     );
 
   return (

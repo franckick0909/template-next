@@ -154,8 +154,8 @@ const Navbar = () => {
               className="border-y relative overflow-hidden pText">
               <Link
                 href={link.href}
-                className={` bg-black overflow-hidden ${
-                  pathName === link.href && "font-bold tracking-tighter text-fuchsia-700"
+                className={` bg-black overflow-hidden stardos-stencil ${
+                  pathName === link.href && "font-semibold tracking-tighter text-fuchsia-500"
                 }`}>
                 <AnimatedLink title={link.text} />
               </Link>
@@ -171,7 +171,7 @@ const Navbar = () => {
       {/* MENU RESPONSIVE */}
       <div className="">
         {/* BURGER BUTTON */}
-        <div className="fixed top-4 right-4 sm:right-8 md:right-12 lg:right-16 xl:right-20 z-50">
+        <div className="fixed top-4 right-4 sm:right-8 md:right-12 lg:right-16 xl:right-20 z-[1000]">
           <button
             className=" w-8 h-8 flex flex-col items-center justify-center gap-[5px] z-50 relative"
             onClick={() => setIsOpen((prev) => !prev)}>
