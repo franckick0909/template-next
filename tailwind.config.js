@@ -20,7 +20,15 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-
+      colors: {
+        dark: "#1b1b1b",
+        light: "#f5f5f5",
+        primary: "#ff00ff",
+        secondary: "#00ffff",
+        tertiary: "#ffff00",
+        quaternary: "#00ff00",
+        quinary: "#ff0000",
+      },
       boxShadow: {
         "3xl": "0 15px 60px -15px rgba(0, 0, 0, 0.8)",
       },

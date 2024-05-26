@@ -3,58 +3,60 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-
 const PhraseSplit = ({ phrase }) => {
-
-
-
-
-const slideUp = {
+  const slideUp = {
     initial: {
-        y: 100,
-        opacity: 0,
+      opacity: 0,
     },
     open: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 1,
-            delay: 0.09 * i,
-        },
+      opacity: 1,
+      transition: {
+        delay: 0.08 * i,
+        staggerChildren: 0.08,
+      },
     }),
-    closed: {
-        y: 200,
-        opacity: 0,
+  };
+
+  const singleWord = {
+    initial: {
+      y: 200,
+      opacity: 0,
+      scale: 0.5,
     },
-};
+    open: {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
 
-const container = useRef(null);
-const  isInView  = useInView(container, { margin: "-100px"});
-
-
+  const container = useRef(null);
+  const isInView = useInView(container, { margin: "-100px" });
 
   return (
     <div ref={container} className="">
-        <div className="flex max-w-full justify-between gap-[50px]">
-            <p className="flex gap-2 flex-wrap">
-                {phrase.split(" ").map((word, index) => {
-                    return (
-                        <span key={index} className="inline-flex relative overflow-hidden">
-                        <motion.span
-                        custom={index}
-                            variants={slideUp}
-                            initial="closed"
-                            animate={isInView ? "open" : "closed"}
-                        >
-                            {word }
-                        </motion.span></span>
-                    );
-                })
-                }
-            </p>
-        </div>
+      <div className="flex max-w-full justify-between gap-[10px]">
+        <motion.h2
+          variants={slideUp}
+          animate={isInView ? "open" : "closed"}
+          initial="initial"
+          className="flex flex-wrap"
+        >
+          {phrase.split(" ").map((word, index) => (
+            <div key={word + "-" + index} className="overflow-hidden">
+            <motion.span
+                variants={singleWord}
+              className="inline-block overflow-hidden">
+              {word}&nbsp;
+            </motion.span></div>
+          ))}
+        </motion.h2>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default PhraseSplit;
