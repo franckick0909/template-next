@@ -1,4 +1,3 @@
-const { Space_Grotesk } = require('next/font/google');
 
 
 /** @type {import('tailwindcss').Config} */
@@ -23,11 +22,6 @@ module.exports = {
       colors: {
         dark: "#1b1b1b",
         light: "#f5f5f5",
-        primary: "#ff00ff",
-        secondary: "#00ffff",
-        tertiary: "#ffff00",
-        quaternary: "#00ff00",
-        quinary: "#ff0000",
       },
       boxShadow: {
         "3xl": "0 15px 60px -15px rgba(0, 0, 0, 0.8)",
