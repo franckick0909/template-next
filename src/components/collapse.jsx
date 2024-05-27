@@ -5,6 +5,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaCode, FaPlus, FaMinus } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import Link from "next/link";
 
 const Collapse = ({
   title,
@@ -25,12 +26,13 @@ const Collapse = ({
     setOpenCollapse(!openCollapse);
   };
 
-  const icon = openCollapse ? <FaMinus className="w-7 h-7" /> : 
-  <motion.div
-    whileHover={{ rotate: 90 }}
-   className="hover:rotate-90">
-    <FaPlus className="w-7 h-7" />
+  const icon = openCollapse ? (
+    <FaMinus className="w-7 h-7" />
+  ) : (
+    <motion.div whileHover={{ rotate: 90 }} className="hover:rotate-90">
+      <FaPlus className="w-7 h-7" />
     </motion.div>
+  );
 
   const list = {
     visible: {
@@ -89,13 +91,15 @@ const Collapse = ({
         <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className="border-separate max-w-full w-full text-left items-center justify-between gap-4 flex max-md:flex-col max-md:items-start h-auto bg-white rounded-lg p-4 shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out"
+          className="border-separate max-w-full w-full text-left items-center justify-between gap-4 flex max-md:flex-col max-md:items-start h-auto bg-white rounded-lg p-4 shadow-sm hover:shadow-md  transition-shadow duration-300 ease-in-out"
         >
           <div className="flex-1 h-full flex items-center w-full justify-between ">
-            <h2 className="stardos-stencil-regular bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{title}</h2>
+            <h2 className="stardos-stencil-regular bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
+              {title}
+            </h2>
 
             <button
-              className="text-white bg-slate-700 rounded-full p- text-base max-md:block hidden z-50"
+              className="text-white bg-slate-900 rounded-full p-text-base max-md:block hidden z-50"
               onClick={handleCollapse}
             >
               {icon}
@@ -125,7 +129,7 @@ const Collapse = ({
 
           <div className="flex-1 h-full flex items-center justify-end w-full max-md:justify-start max-md:hidden">
             <button
-              className="text-white bg-slate-700 rounded-full p-3 text-base z-20"
+              className="text-white bg-slate-900 rounded-full p-3 text-base z-20"
               onClick={handleCollapse}
             >
               {icon}
@@ -134,19 +138,18 @@ const Collapse = ({
         </div>
 
         <motion.div
-          className={`w-full h-auto overflow-hidden max-md:text-sm text-base ${
+          className={`w-full h-auto overflow-hidden max-md:text-sm text-base shadow-md ${
             openCollapse ? "h-auto" : "h-0"
           }`}
           variants={list}
           initial="hidden"
           animate={openCollapse ? "visible" : "hidden"}
-          
         >
           <motion.div
             className="w-full h-max px-4 py-4 bg-white rounded-md overflow-hidden max-md:text-sm text-base  grider gap-4 shadow-md"
             variants={item}
           >
-            <motion.div className="h-full w-full rounded-md" variants={item}>
+            <motion.div className="h-full w-full rounded-md shadow-md" variants={item}>
               <Image
                 src={imgProjet}
                 alt="projet"
@@ -158,56 +161,61 @@ const Collapse = ({
             </motion.div>
 
             <motion.div
-              className="w-full h-full p-4 rounded-md bg-slate-200 max-md:text-sm text-base shadow-md"
+              className="w-full h-full p-4 rounded-md bg-white max-md:text-sm text-base"
               variants={item}
             >
               <h4 className="text-black">THEME</h4>
-              <div className="border-fuchsia-500 mb-4 border-[1px]"></div>
+              <div className="border-indigo-500 mb-4 border-[1px]"></div>
               <p className="max-md:text-sm text-base text-black">{theme}</p>
             </motion.div>
 
             <motion.div
-              className="w-full h-full p-4 rounded-md bg-slate-200 max-md:text-sm text-base shadow-md"
+              className="w-full h-full p-4 rounded-md bg-white max-md:text-sm text-base"
               variants={item}
             >
               <h4 className="text-black">URL</h4>
-              <div className="border-fuchsia-500 mb-4 border-[1px]"></div>
+              <div className="border-indigo-500 mb-4 border-[1px]"></div>
 
               <div className="flex flex-col gap-4 flex-wrap w-full">
- 
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-2 text-black text-sm bg-slate-300 hover:text-white hover:bg-slate-400 px-4 py-2 rounded-md z-50 transition-all duration-300 ease-in-out shadow-md"
-                  >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={href}
+                  className="p-[2px] relative w-full hover:-translate-y-[2px] transition-all duration-300 ease-in"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-full animate-pulse" />
+                  <div className="px-6 py-2 bg-white rounded-full relative group transition duration-200 text-slate-900 f hover:bg-transparent hover:text-white pText flex items-center justify-center gap-4 hover:shadow-lg shadow-md">
                     Voir le code
-                    <span className="text-white">
-                      <FaCode className="w-5 h-5" />
-                    </span>
-                  </a>
+                    <div className="w-7 h-7 flex items-center justify-center">
+                      <FaCode className="" />
+                    </div>
+                  </div>
+                </a>
 
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={github}
-                    className="flex items-center justify-between gap-2 text-black text-sm bg-slate-300 hover:text-white hover:bg-slate-400 px-4 py-2 rounded-md z-50 transition-all duration-300 ease-in-out shadow-md"
-                  >
-                    Consulter le site
-                    <span className="text-white">
-                      <FaExternalLinkAlt className="w-4 h-4" />
-                    </span>
-                  </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={href}
+                  className="p-[2px] relative w-full hover:-translate-y-[2px] transition-all duration-300 ease-in"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full animate-pulse" />
+                  <div className="px-6 py-2 bg-transparent rounded-full relative group transition duration-200 text-white f hover:bg-white hover:text-slate-900 pText flex items-center justify-center gap-4 hover:shadow-lg shadow-md">
+                  Consulter le site
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <FaExternalLinkAlt className="" />
+                    </div>
+                  </div>
+                </a>
 
               </div>
             </motion.div>
 
             <motion.div
-              className="w-full h-full p-4 rounded-md bg-slate-200 max-md:text-sm text-base shadow-md"
+              className="w-full h-full p-4 rounded-md bg-white max-md:text-sm text-base"
               variants={item}
             >
               <h4 className="text-black">DESCRIPTION</h4>
-              <div className="border-fuchsia-500 mb-4 border-[1px]"></div>
+              <div className="border-indigo-500 mb-4 border-[1px]"></div>
               <p className="max-md:text-sm text-base text-black">{desc}</p>
             </motion.div>
           </motion.div>

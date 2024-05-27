@@ -11,10 +11,12 @@ const PhraseSplit = ({ phrase }) => {
 
 const slideUp = {
     initial: {
-        y: 100,
+        scale: 0,
+        y: 200,
         opacity: 0,
     },
     open: (i) => ({
+        scale: 1,
         opacity: 1,
         y: 0,
         transition: {
@@ -23,6 +25,7 @@ const slideUp = {
         },
     }),
     closed: {
+        scale: 0,
         y: 200,
         opacity: 0,
     },
@@ -37,7 +40,7 @@ const  isInView  = useInView(container, { margin: "-100px"});
     <div ref={container} className="">
         <div className="flex max-w-full justify-between gap-[50px]">
             <p className="flex gap-2 flex-wrap">
-                {phrase.split(" ").map((word, index) => {
+                {phrase.split("").map((word, index) => {
                     return (
                         <span key={index} className="inline-flex relative overflow-hidden">
                         <motion.span

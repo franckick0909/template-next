@@ -7,11 +7,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Cerveau from "@/components/cerveau";
 import SvgScroll from "@/components/svgScroll";
-import PhraseSplit from "@/components/phraseSplit";
 
 const AboutPage = () => {
+  const bioRef = useRef();
+  const isBioRefInView = useInView(bioRef, { margin: "-100px" });
   const skillRef = useRef();
   const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+  const TimelineRef = useRef();
+  const isTimelineRefInView = useInView(TimelineRef, { margin: "-100px" });
 
   return (
     <motion.section
@@ -22,15 +25,18 @@ const AboutPage = () => {
     >
       <motion.div className="grid md:grid-cols-2 gap-8 p-4 md:px-8 lg:px-16 xl:px-20 relative mt-14 grid-template-columns: subgrid;">
         <div className="grid gap-20 w-[110%] max-md:w-full">
-          <section className="flex flex-col gap-12 justify-center w-full">
-            <div className="flex place-items-baseline justify-start w-full h-max gap-2 ">
+          <section
+            ref={bioRef}
+            className="flex flex-col gap-12 justify-center w-full"
+          >
+            <div className="flex place-items-baseline justify-start w-full h-max gap-2 overflow-hidden">
               <motion.h1
-                initial={{ y: 100 }}
-                whileInView={{ y: 0 }}
+                initial={{ y: 500 }}
+                animate={isBioRefInView ? { y: 0 } : { y: 500 }}
                 transition={{ delay: 0.2, duration: 1 }}
                 className="playfair "
               >
-                {PhraseSplit({ phrase: "01" })}
+                01
               </motion.h1>
 
               <h2 className="font-bold text-2xl border-collapse border-y-2 border-fuchsia-500">
@@ -48,13 +54,13 @@ const AboutPage = () => {
           <div className="w-full min-h-[calc(100vh-10rem)] flex flex-col text-justify gap-6">
             <section
               ref={skillRef}
-              className="flex flex-col gap-12 justify-center w-full"
+              className="flex flex-col gap-12 justify-center w-full overflow-hidden"
             >
               <div className="flex items-baseline gap-2">
                 <motion.h1
                   initial={{ x: "-200px" }}
                   animate={isSkillRefInView ? { x: 0 } : {}}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.2, duration: 1 }}
                   className="playfair"
                 >
                   02
@@ -74,15 +80,18 @@ const AboutPage = () => {
           </div>
 
           <div className="w-full flex flex-col pt-16">
-            <section className="flex flex-col gap-12 justify-center w-full">
-              <div className="flex items-baseline gap-8">
+            <section
+              ref={TimelineRef}
+              className="flex flex-col gap-12 justify-center w-full"
+            >
+              <div className="flex items-baseline gap-8 overflow-hidden">
                 <motion.h1
-                  initial={{ y: 100 }}
-                  whileInView={{ y: 0 }}
+                  initial={{ y: 500 }}
+                  animate={isTimelineRefInView ? { y: 0 } : { y: 500 }}
                   transition={{ delay: 0.2, duration: 1 }}
-                  className="playfair z-10"
+                  className="playfair "
                 >
-                  {PhraseSplit({ phrase: "03" })}
+                  03
                 </motion.h1>
                 <h2 className="font-bold text-2xl border-collapse border-y-2 border-fuchsia-500">
                   SKILLS

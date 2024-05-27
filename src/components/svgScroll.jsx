@@ -21,7 +21,7 @@ const SvgScroll = () => {
             initial={{ pathLength: 0, fill: "#ffffff", offset: 0 }}
             animate={{
               pathLength: 1,
-              fill: ["#ffffff", "rgba(255, 0, 255, 0.5)"],
+              fill: ["#ffffff", "#4b0082"],
               offset: 1,
             }}
             transition={{
@@ -57,17 +57,9 @@ c235 -48 438 -158 611 -330 171 -170 278 -370 331 -615 17 -80 18 -167 18
         </g>
       </svg>
 
-        <motion.p
-          initial={{ y: 0, scaleX: 1 }}
-          animate={{ y: 10, scaleX: 0.95}}
-          transition={{
-            duration: 1.5,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="text-black"
-        >Scroll Down</motion.p>
+        <p
+          className="text-black animate-bounce mt-4 pText"
+        >Scroll Down</p>
     </div>
   );
 };

@@ -9,6 +9,7 @@ import img4 from "@/images/gallery/img7.png";
 import img5 from "@/images/gallery/img5.png";
 import img6 from "@/images/gallery/img6.png";
 import { AnimatePresence, motion } from "framer-motion";
+import PhraseSplit from "@/components/phraseSplit";
 
 const projet = [
   {
@@ -117,62 +118,65 @@ const PortfolioPage = () => {
 
   return (
     <AnimatePresence>
-    <section className="w-full min-h-screen flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-xl py-14 bg-slate-300">
-      <div className="flex items-center justify-center w-full mb-8">
-        <h2 className="text-2xl font-bold">Mes projets</h2>
+    <section className="w-full min-h-screen flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-xl py-14 bg-white">
+      <div className="flex items-center justify-center w-full ">
+        <h1 className="overflow-hidden playfair uppercase flex items-center gap-4">
+          <PhraseSplit phrase="Mes Projets" />
+          
+        </h1>
       </div>
 
-      <article className="flex justify-between gap-4 max-lg:flex-col w-full h-full">
-        <div className="max-w-full lg:w-56 bg-slate-200 p-4 rounded-lg shadow-lg">
+      <article className="flex justify-between gap-4 max-lg:flex-col w-full h-full mt-8">
+        <div className="max-w-full lg:w-56 bg-white p-4 rounded-lg ">
           <h2 className="text-2xl font-bold mb-4">Filtres</h2>
-          <div className="border-[1px] border-fuchsia-500 mb-8"></div>
+          <div className="border-[1px] border-indigo-500 mb-8"></div>
           <div className="flex lg:flex-col flex-wrap gap-2 justify-start w-full items-start text-left flex-shrink-0">
             <button
               onClick={() => setFilter("Tous")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Tous" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Tous" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Tous
             </button>
             <button
               onClick={() => setFilter("Site Portfolio")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Portfolio" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Portfolio" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Site Portfolio
             </button>
             <button
               onClick={() => setFilter("Site Vitrine")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Vitrine" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Vitrine" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Site Vitrine
             </button>
             <button
               onClick={() => setFilter("Site Ecommerce")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Ecommerce" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Ecommerce" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Site Ecommerce
             </button>
             <button
               onClick={() => setFilter("Site Evènement")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Evènement" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Evènement" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Site Evènement
             </button>
             <button
               onClick={() => setFilter("Site Personnel")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Personnel" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Personnel" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Site Personnel
             </button>
             <button
               onClick={() => setFilter("Site Entreprise")}
-              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-white px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Entreprise" ? "bg-fuchsia-500 text-white" : ""}`}
+              className={`text-slate-950 rounded-md text-base hover:text-fuchsia-500 hover:bg-slate-200 px-4 py-2 hover:translate-x-2 transition-all duration-300 ${filter === "Site Entreprise" ? "bg-fuchsia-500 text-white" : ""}`}
             >
               Site Entreprise
             </button>
           </div>
         </div>
 
-        <div className="w-full flex flex-col gap-6 flex-1 p-4  rounded-lg bg-slate-200 shadow-lg">
+        <div className="w-full flex flex-col gap-6 flex-1 p-4  rounded-lg bg-white">
           {filteredProjects.map((projet) => (
             <motion.div
               variants={variants}
