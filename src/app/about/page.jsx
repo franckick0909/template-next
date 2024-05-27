@@ -10,21 +10,30 @@ import SvgScroll from "@/components/svgScroll";
 
 const AboutPage = () => {
   const bioRef = useRef();
+<<<<<<< HEAD
   const isBioRefInView = useInView(bioRef, { margin: "-100px" });
   const skillRef = useRef();
   const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
   const TimelineRef = useRef();
   const isTimelineRefInView = useInView(TimelineRef, { margin: "-100px" });
+=======
+  const isBioRefInView = useInView(bioRef);
+  const skillRef = useRef();
+  const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+  const timelineRef = useRef();
+  const isTimelineRefInView = useInView(timelineRef, { margin: "-100px" });
+>>>>>>> 8b0a28ec4634ae045377ac25677eb701e1326174
 
   return (
     <motion.section
-      className="w-full min-h-screen flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-xl py-14 bg-white"
+      className="w-full min-h-screen flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-xl py-14 bg-light dark:bg-dark"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
       <motion.div className="grid md:grid-cols-2 gap-8 p-4 md:px-8 lg:px-16 xl:px-20 relative mt-14 grid-template-columns: subgrid;">
         <div className="grid gap-20 w-[110%] max-md:w-full">
+<<<<<<< HEAD
           <section
             ref={bioRef}
             className="flex flex-col gap-12 justify-center w-full"
@@ -33,8 +42,15 @@ const AboutPage = () => {
               <motion.h1
                 initial={{ y: 500 }}
                 animate={isBioRefInView ? { y: 0 } : { y: 500 }}
+=======
+          <section ref={bioRef} className="flex flex-col gap-12 justify-center w-full">
+            <div className="flex items-baseline justify-start gap-2 overflow-hidden">
+              <motion.h1
+                initial={{ y: 300 }}
+                animate={isBioRefInView ? { y: 0 } : {}}
+>>>>>>> 8b0a28ec4634ae045377ac25677eb701e1326174
                 transition={{ delay: 0.2, duration: 1 }}
-                className="playfair "
+                className="playfair text-black dark:text-white z-10"
               >
                 01
               </motion.h1>
@@ -80,6 +96,7 @@ const AboutPage = () => {
           </div>
 
           <div className="w-full flex flex-col pt-16">
+<<<<<<< HEAD
             <section
               ref={TimelineRef}
               className="flex flex-col gap-12 justify-center w-full"
@@ -97,6 +114,23 @@ const AboutPage = () => {
                   SKILLS
                 </h2>
               </div>
+=======
+            <section ref={timelineRef} className="flex flex-col gap-12 justify-center w-full">
+            <div className="flex items-baseline justify-start gap-2 overflow-hidden">
+              <motion.h1
+                initial={{ y: 300 }}
+                animate={isTimelineRefInView ? { y: 0 } : {}}
+                transition={{ delay: 0.2, duration: 1 }}
+                className="playfair text-black dark:text-white z-10"
+              >
+                03
+              </motion.h1>
+
+              <h2 className="font-bold text-2xl border-collapse border-y-2 border-fuchsia-500">
+                EXPERIENCES
+              </h2>
+            </div>
+>>>>>>> 8b0a28ec4634ae045377ac25677eb701e1326174
 
               <div className="w-full flex flex-col items-center justify-center text-justify gap-6 rounded-lg py-8 mb-96">
                 <Timeline />
