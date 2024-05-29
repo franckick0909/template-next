@@ -5,7 +5,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaCode, FaPlus, FaMinus } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Link from "next/link";
 
 const Collapse = ({
   title,
@@ -94,9 +93,9 @@ const Collapse = ({
           className="border-separate max-w-full w-full text-left items-center justify-between gap-4 flex max-md:flex-col max-md:items-start h-auto bg-white rounded-lg p-4 shadow-sm hover:shadow-md  transition-shadow duration-300 ease-in-out"
         >
           <div className="flex-1 h-full flex items-center w-full justify-between ">
-            <h2 className="stardos-stencil-regular bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
+            <h3 className="bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
               {title}
-            </h2>
+            </h3>
 
             <button
               className="text-white bg-slate-900 rounded-full p-text-base max-md:block hidden z-50"

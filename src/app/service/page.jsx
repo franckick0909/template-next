@@ -10,6 +10,7 @@ import img1 from "@/images/services/img1.jpeg";
 import img2 from "@/images/services/img2.jpeg";
 import img3 from "@/images/services/img3.jpeg";
 import img4 from "@/images/services/img4.jpeg";
+import PhraseSplit from "@/components/phraseSplit";
 
 const ServicePage = () => {
   const data = [
@@ -71,7 +72,9 @@ const ServicePage = () => {
 
   const ref = useRef();
 
-  const { scrollYProgress } = useScroll({ target: ref });
+  const { scrollYProgress } = useScroll({
+     target: ref,
+     });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85.8%"]);
 
   return (
@@ -79,15 +82,20 @@ const ServicePage = () => {
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
-      className="h-full bg-violet-200"
+      className="h-full bg-light dark:bg-dark"
     >
       <section className="h-[800vh] relative" ref={ref}>
         <div className="w-full h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
-          <h1 className="playfairSC uppercase">Mes Services</h1>
+          <h1 className="overflow-hidden playfair uppercase flex items-center gap-4">
+          <PhraseSplit phrase="Mes Services" />
+          
+        </h1>
           <div className="max-w-[10%] max-h-full mt-8">
             <SvgScroll />
           </div>
         </div>
+
+
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
             <div className="h-screen w-screen flex items-center bg-slate-600" />

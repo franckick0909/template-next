@@ -19,7 +19,7 @@ const marqueeAnimation = {
 const banner = {
   animate: {
     transition: {
-      delayChildren: 0.5,
+      delayChildren: 2,
       staggerChildren: 0.1,
     },
   },
@@ -43,11 +43,12 @@ const Marquee = () => {
 
   return (
     <motion.div
-      className="w-full h-screen flex flex-col relative pb-12 bg-rose-600"
+      className="w-full h-screen flex flex-col relative pb-12"
       variants={banner}>
-      <BannerRowTop title={"Frontend"} />
-      <BannerRowCenter title={" Franck  -  Chapelon "} />
-      <BannerRowBottom title={"React"} />
+      <BannerRowTop title={". Développeur ."} />
+
+      {/* <BannerRowCenter title={" Franck  -  Chapelon "} /> */}
+      <BannerRowBottom title={". React ."} />
     </motion.div>
   );
 };
@@ -55,7 +56,7 @@ const Marquee = () => {
 const AnimatedLetters = ({ title, disabled }) => {
   return (
     <motion.span
-      className="flex bg-green-300 h-min overflow-hidden"
+      className="flex h-min overflow-hidden"
       variants={disabled ? null : banner}
       initial="initial"
       animate="animate">
@@ -71,15 +72,12 @@ const AnimatedLetters = ({ title, disabled }) => {
 const BannerRowTop = ({ title }) => {
   return (
     <div className="h-full w-full flex flex-col gap-0 flex-1 px-28 max-md:px-12">
-      <div className="min-h-[8rem] flex flex-col justify-center items-start overflow-hidden lora font-bold">
+      <div className="flex flex-col justify-center items-start overflow-hidden font-bold poppins text-9xl text-white italic">
         <AnimatedLetters title={title} />
       </div>
       <motion.div
         className="flex flex-col "
 >
-        <div className="">
-          <Welcome />
-        </div>
       </motion.div>
     </div>
   );
@@ -89,44 +87,44 @@ const BannerRowBottom = ({ title }) => {
   return (
     <div className="max-w-full w-full relative flex flex-1 flex-wrap-reverse items-center justify-between px-28 max-md:px-12 ">
       <motion.div
-        className="h-40 w-40 max-lg:h-24 max-lg:w-24 bg-black rounded-full flex flex-col justify-center items-center cursor-pointer shadow-lg"
+        className="h-40 w-40 max-lg:h-24 max-lg:w-24 bg-white rounded-full shadow-lg flex flex-col justify-center items-center cursor-pointer"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ ease: "easeInOut", duration: 1, delay: 2 }}>
         <motion.span
-          className="text-white"
+          className="text-black"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 1, delay: 2.8 }}>
           scroll
         </motion.span>
         <motion.span
-          className="text-white"
+          className="text-black"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 1, delay: 2.8 }}>
           down
         </motion.span>
       </motion.div>
-      <div className="min-h-[8rem] flex flex-col justify-center overflow-hidden lora font-bold">
+      <div className="min-h-[8rem] flex flex-col justify-center overflow-hidden lora-title-H1 font-bold poppins text-9xl text-white italic">
         <AnimatedLetters title={title} />
       </div>
     </div>
   );
 };
 
-const BannerRowCenter = ({ title }) => {
-  return (
-    <motion.div className="relative overflow-hidden flex w-full">
-      <motion.div
-        className="max-w-full w-screen  flex gap-8 items-center overflow-hidden px-24 poppins"
-        variants={marqueeAnimation}
-        initial="initial"
-        animate="animate">
-        <AnimatedLetters title={title} className="overflow-hidden " />
-      </motion.div>
-    </motion.div>
-  );
-};
+// const BannerRowCenter = ({ title }) => {
+//   return (
+//     <motion.div className="relative overflow-hidden flex w-full">
+//       <motion.div
+//         className="max-w-full w-screen  flex gap-8 items-center overflow-hidden px-24 lora-title-H1 font-bold text-white"
+//         variants={marqueeAnimation}
+//         initial="initial"
+//         animate="animate">
+//         <AnimatedLetters title={title} className="overflow-hidden " />
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
 
 export default Marquee;

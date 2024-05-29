@@ -1,80 +1,90 @@
 "use client";
 
-import SlideText from "@/components/textSliding";
-import { motion } from "framer-motion";
-import Welcome from "@/components/welcome";
-import Freelance from "@/components/freelance";
-// import Image from "next/image";
-// import imgHero from "../../images/pexels-cottonbro-studio-6892716.jpg";
-import Gallery from "@/components/gallery";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
+
+import img2 from "@/images/hero/img2.jpeg";
+import img6 from "@/images/hero/img6.jpg";
 import Marquee from "@/components/marquee";
-import PhraseSplit from "@/components/phraseSplit";
 
 const HeroPage = () => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
+
+  const scale1 = useTransform(scrollYProgress, [0, 1], [4, 0]);
+  const scale2 = useTransform(scrollYProgress, [0, 1], [0, 4]);
+  const opacity1 = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const imgVariants = {
-    hidden: {
-      opacity: 0.4,
-      scale: 0.2,
-      y: 0,
-      rotate: 90,
+    initial: {
+      opacity: 0,
+      scale: 0,
     },
-    visible: {
+    animate: {
       opacity: 1,
       scale: 1,
-      y: 100,
-      rotate: 0,
       transition: {
-        delay: 5,
+        delay: 1,
         duration: 1,
-        ease: "easeInOut",
       },
     },
   };
 
-
   return (
     <motion.div
       layout
-      className="w-full"
+      className="w-full bg-light dark:bg-dark"
       initial={{ y: "200vh" }}
       animate={{ y: "0%" }}
-      transition={{ duration: 1 }}>
-      <motion.section className="relative w-full min-h-dvh m-auto flex flex-col gap-8 items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 overflow-hidden">
-        <motion.div
-          className="absolute container mx-auto max-w-max z-[1]"
-          variants={imgVariants}
-          initial="hidden"
-          animate="visible">
-          <Gallery />
+      transition={{ duration: 1 }}
+    >
+      <div ref={container} className="h-[300vh] relative w-full">
+        <motion.div className="sticky top-0 h-screen ">
+          <div className="relative text-white z-10">
+            <Marquee title="Hero Page" />
+          </div>
+
+
+
+          <div className="w-full h-full absolute top-0 flex items-center justify-center  overflow-hidden">
+            <motion.div
+              style={{ scale: scale2, opacity: opacity2 }}
+              className="w-[25vw] h-[25vh]"
+            >
+              <Image
+                src={img2}
+                alt="image"
+                placeholder="blur"
+                objectFit="cover"
+              />
+            </motion.div>
+          </div>
+
+          <motion.div
+            variants={imgVariants}
+            initial="initial"
+            animate="animate"
+            className="w-full h-full absolute top-0 flex items-center justify-center overflow-hidden"
+          >
+            <motion.div
+              style={{ scale: scale1, opacity: opacity1 }}
+              className="w-[25vw] h-[25vh] relative"
+            >
+              <Image
+                src={img6}
+                alt="image"
+                placeholder="blur"
+                objectFit="cover"
+              />
+            </motion.div>
+          </motion.div>
         </motion.div>
-
-
-<div className="">
-  {PhraseSplit({ phrase: "Je suis spécialisé dans le développement front-end et la création de site web. J'aime travailler sur des projets qui me permettent de m'améliorer et d'apprendre de nouvelles choses. J'ai une bonne connaissance des technologies web et je suis toujours à la recherche de nouveaux défis." })}
-</div>
-
-        <motion.div
-          className="absolute max-w-max"
-          variants={imgVariants}
-          initial="hidden"
-          animate="visible">
-          {/* <Image
-            src={imgHero}
-            layout="responsive"
-            alt="hero"
-            className="w-full h-auto rounded-b-xl shadow-lg object-contain"
-          /> */}
-        </motion.div>
-
-        <div className="flex items-center flex-1 z-[2]">
-          <Marquee />
-        </div>
-
-        {/* <div className="container flex-1 flex items-center justify-end gap-4">
-          <Freelance />
-        </div> */}
-      </motion.section>
+      </div>
     </motion.div>
   );
 };

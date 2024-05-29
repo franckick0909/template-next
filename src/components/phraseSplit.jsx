@@ -3,43 +3,44 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const PhraseSplit = ({ phrase }) => {
+const PhraseSplit = ({ phrase, delay }) => {
   const slideUp = {
     initial: {
-        y: 100,
-        opacity: 0,
+      opacity: 0,
+      y: 100,
     },
     open: (i) => ({
         opacity: 1,
         y: 0,
         transition: {
-            duration: 1,
-            delay: 0.09 * i,
+            delay: i * (delay ? delay : 0.05),
+            when: "afterChildren",
+            // ease: [0.6, 0.01, -0.05, 0.95],
+            ease: "easeOut",
         },
     }),
-    closed: {
-        y: 200,
-        opacity: 0,
-    },
   };
 
+  const letter = phrase.split("");
+
+
   const container = useRef(null);
-  const isInView = useInView(container, { margin: "-100px" });
+  const isInView = useInView(container, { margin: "-100px"});
 
   return (
     <div ref={container} className="">
         <div className="flex max-w-full justify-between gap-[50px]">
-            <p className="flex gap-2 flex-wrap">
-                {phrase.split(" ").map((word, index) => {
+            <p className="flex font-display text-center font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white">
+                {letter.map((word, index) => {
                     return (
                         <span key={index} className="inline-flex relative overflow-hidden">
                         <motion.span
                         custom={index}
                             variants={slideUp}
-                            initial="closed"
-                            animate={isInView ? "open" : "closed"}
+                            initial="initial"
+                            animate={isInView ? "open" : "initial"}
                         >
-                            {word }
+                            {word === " " ? <span>&nbsp;</span> : word}
                         </motion.span></span>
                     );
                 })

@@ -118,6 +118,12 @@ const PortfolioPage = () => {
 
   return (
     <AnimatePresence>
+          <motion.div
+      initial={{ y: "-200vh" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1 }}
+      className="h-full bg-light dark:bg-dark"
+    >
     <section className="w-full min-h-screen flex flex-col items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 text-xl py-14 bg-white">
       <div className="flex items-center justify-center w-full ">
         <h1 className="overflow-hidden playfair uppercase flex items-center gap-4">
@@ -200,6 +206,7 @@ const PortfolioPage = () => {
         </div>
       </article>
     </section>
+    </motion.div>
     </AnimatePresence>
   );
 };
